@@ -25,3 +25,13 @@ create table ventaDetalle(
     descuento int not null,
     primary key(id)
 );
+
+ create table users(
+	id int auto_increment,
+    email varchar(100) not null,
+    usuario varchar(50) not null,
+    pass varchar(256) not null,
+    estado int default 0,
+    privilegio varchar(50) not null,
+    primary key(id)
+ );
