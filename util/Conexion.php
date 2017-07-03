@@ -24,12 +24,12 @@ class Conexion{
 	public static function conectar(){
 		try{
 			$cn = new PDO("mysql:host=".HOST.";dbname=".DB, USER, PASSBD);
+			return $cn;
 		}catch (PDOExeption $ex){
-			echo $ex->getMessage();
+			//die($ex->getMessage());
 		}
-		//return $cn;
-		echo "Connection Successful"; 
+		//echo "Connection Successful"; 
 	}
 }
 
-Conexion::conectar();
+//Conexion::conectar();
