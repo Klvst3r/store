@@ -24,7 +24,14 @@ class Ruta {
 	}
 
 	public function submit(){
-		echo "Hola Submit";
+		//echo "Hola Submit";
+		// Procesamos la URL que ejecutara sobre la dirección superior
+		/**
+		 * Lo que indiquemos en la barra da direcciones seria el nombre del controlador y lo que sigue sera el metodo
+		 * Son las peticiones GET["uri"] hecha sobre nuestra aplicacion
+		 */
+		$uri = $_REQUEST["uri"];
+		echo $uri;
 	}
 
 }

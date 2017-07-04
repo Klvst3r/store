@@ -13,3 +13,24 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 #Indicamos que ruta cargara
 RewriteRule ^(.+)$ index.php?uri=$1 [QSA,L]
+
+# Para activar los permalinks de esta seccion debemos Habilitar el uso de .htaccess en Apache con Linux
+# Habilitar mod_rewrite con el siguiente comando:
+#  sudo a2enmod rewrite
+# 1. Abrir el archivo:
+# sudo nano /etc/apache2/apache2.conf
+# 2. Descomentar la linea (remueve el simbolo #)
+# AccessFileName .htaccess
+# 3. Encuentra la siguiente sección
+# <Directory /var/www/>
+#     Options Indexes FollowSymLinks
+#     AllowOverride None
+#     Require all granted
+#</Directory>
+# 
+# Nota: la sección anterior también la puedes encontrar en el archivo:
+# /etc/apache2/sites-available/default
+# 4. Reemplaza “None” por “All” :
+# AllowOverride All
+# 5. Reinicia el servicio de Apache
+# sudo service apache2 restart
