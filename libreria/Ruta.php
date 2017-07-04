@@ -76,8 +76,8 @@ class Ruta {
 	 * @return [type]              [description]
 	 */
 	public function getController($metodo, $controlador ){
-		$metodoController = "";
-		//Condicional
+		$metodoController = ""; //metodo que se ejecutar inciando vacio
+		//Condicional para comprobar si es index o no el metodo del controlador en la ruta
 		if($metodo == "index" || $metodo == ""){
 			$metodoController = "index";
 		}else{
@@ -88,15 +88,21 @@ class Ruta {
 		//Si es llamable el controlador como clase del controlador de nombre de clase
 		// Se debe llamar tal cual se llame en el archivo interno de rutas
 		// Si existe la clase WelcomeController, class_exist - Verifica si la clase ha sido definida
+		// Si existe se crea una clase temporal en base a la variable controlador = (WelcomeController)
+		// Estamos creando la variable con una nueva instancias
+		// $clase = new WelcomeController;
 		if(class_exists($controlador)){
 			//echo "La clase WelcomeController si existe";
 			$ClaseTemp = new $controlador();
 			/**
 			 * Si se puede llamar dentro de esa clase el metodo Controler que es index, 
+			 * Comrpobamos si se puede llamar a la funcion o metodo de esa clase
 			 */
 			if(is_callable(array($ClaseTemp,$metodoController))){
 				//echo "Es llamable";
 				//Imprimimos la salida del metodo index()
+				//Hacemos una llamada al metodo de esa clase, se llama al index
+				//$Clase->index();
 				$ClaseTemp->$metodoController();
 			}else{
 				die("No existe el metodo");
@@ -111,8 +117,10 @@ class Ruta {
 	public function incluirControlador($controlador){
 		//comprobamos si existe el archivo
 		//Recuperar la app a traves de la ruta
+		//Validando si existe el archivo o no
 		
 		if(file_exists(APP_RUTA."controller/".$controlador.".php")){
+			//Si existe lo incluimos
 			include APP_RUTA."controller/".$controlador.".php";
 		}else{
 			die("Error al encontrar el archivo de controlador");
