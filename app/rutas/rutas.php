@@ -15,6 +15,6 @@ $ruta = new Ruta();
  * Son los archivos que procesaran las rutas principales del proyecto
  */
 $ruta->controladores(array(
-	"/"=>"PrincipalController",
+	"/"=>"WelcomeController",
 	"/usuarios"=>"UsuarioController"
 	));
