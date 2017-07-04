@@ -85,6 +85,14 @@ class Ruta {
 		}
 		//Incluye el c0ntrolador
 		$this->incluirControlador($controlador);
+		//Si es llamable el controlador como clase del controlador de nombre de clase
+		// Se debe llamar tal cual se llame en el archivo interno de rutas
+		// Si existe la clase WelcomeController, class_exist - Verifica si la clase ha sido definida
+		if(class_exists($controlador)){
+			echo "La clase WelcomeController si existe";
+		}else {
+			die("No existe la clase WelcomeController");
+		}
 	
 	} //function getController
 
