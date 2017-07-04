@@ -60,13 +60,44 @@ class Ruta {
 		    	}//foreach
 		    	//echo $controlador;
 		    	// De esta clase llamamos a la funcion getController que traera el controlador
-		    	$this->getController();
+		    	$this->getController("index", $controlador); //Llamamos al metodo que nos recupera el controlador
 		    }
 		}else{
 			//Controladores y metodos
 			//echo "Controlador";
 		}//if
 		
+	} //function submit
+
+	/**
+	 * Funcion o metodo que nos sirve para invocar al controlador con el metodo que debe de ejecutar
+	 * @param  type: metodo      
+	 * @param  $metodo, y $controlador
+	 * @return [type]              [description]
+	 */
+	public function getController($metodo, $controlador ){
+		$metodoController = "";
+		//Condicional
+		if($metodo == "index" || $metodo == ""){
+			$metodoController = "index";
+		}else{
+			$metodoController == $metodo;
+		}
+		//Incluye el c0ntrolador
+		$this->incluirControlador($controlador);
+	
+	} //function getController
+
+
+	public function incluirControlador($controlador){
+		//comprobamos si existe el archivo
+		//Recuperar la app a traves de la ruta
+		
+		if(file_exists(APP_RUTA."controller/".$controlador.".php")){
+			include APP_RUTA."controller/".$controlador.".php";
+		}else{
+			die("Error al encontrar el archivo de controlador");
+		}
 	}
 
-}
+} //Class
