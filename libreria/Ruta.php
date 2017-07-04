@@ -58,9 +58,9 @@ class Ruta {
 		    			$controlador = $controller; // Asignamos a una variable la ruta en este caso el controlador que existe y se ha recuperado
 		    		}//if
 		    	}//foreach
-		    	echo $controlador;
+		    	//echo $controlador;
 		    	// De esta clase llamamos a la funcion getController que traera el controlador
-		    	//$this->getController();
+		    	$this->getController();
 		    }
 		}else{
 			//Controladores y metodos
