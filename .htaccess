@@ -1,0 +1,14 @@
+ # Colocamos todo lo que entontramos con PHP
+ # ayudawp.com/todo-sobre-htaccess
+
+ # Indicamos ruta padre a nuestro proyecto
+
+RewriteEngine On
+RewriteBase /dev/store/
+
+# 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#Indicamos que ruta cargara
+RewriteRule ^(.+)$ index.php?uri=$1 [QSA, L]
