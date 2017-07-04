@@ -89,7 +89,17 @@ class Ruta {
 		// Se debe llamar tal cual se llame en el archivo interno de rutas
 		// Si existe la clase WelcomeController, class_exist - Verifica si la clase ha sido definida
 		if(class_exists($controlador)){
-			echo "La clase WelcomeController si existe";
+			//echo "La clase WelcomeController si existe";
+			$ClaseTemp = new $controlador();
+			/**
+			 * Si se puede llamar dentro de esa clase el metodo Controler que es index, 
+			 * hasta este punto no hay metodos definidos en la clase WelcomeController
+			 */
+			if(is_callable(array($ClaseTemp,$metodoController))){
+				echo "Es llamable";
+			}else{
+				die("No existe el metodo");
+			}
 		}else {
 			die("No existe la clase WelcomeController");
 		}
