@@ -9,4 +9,13 @@
  * 
  */
 
-echo "core";
+//Constantes de Entorno de manera global
+
+//Ruta de la carpeta App
+define("APP_RUTA",RUTA_BASE."app/");
+//echo APP_RUTA;
+define("VISTA_RUTA",RUTA_BASE."view/");
+define("RUTA",APP_RUTA."rutas/");
+//echo RUTA;
+// Rutas 
+include RUTA."rutas.php";
