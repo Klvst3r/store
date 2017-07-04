@@ -93,10 +93,11 @@ class Ruta {
 			$ClaseTemp = new $controlador();
 			/**
 			 * Si se puede llamar dentro de esa clase el metodo Controler que es index, 
-			 * hasta este punto no hay metodos definidos en la clase WelcomeController
 			 */
 			if(is_callable(array($ClaseTemp,$metodoController))){
-				echo "Es llamable";
+				//echo "Es llamable";
+				//Imprimimos la salida del metodo index()
+				$ClaseTemp->$metodoController();
 			}else{
 				die("No existe el metodo");
 			}
