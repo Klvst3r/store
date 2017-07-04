@@ -17,7 +17,7 @@ define("APP_RUTA",RUTA_BASE."app/");
 define("VISTA_RUTA",RUTA_BASE."view/");
 define("RUTA",APP_RUTA."rutas/");
 //echo RUTA;
-//
+
 // Rutas 
 include "Ruta.php";
 include RUTA."rutas.php";

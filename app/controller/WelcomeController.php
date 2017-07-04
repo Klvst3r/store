@@ -2,8 +2,10 @@
 
 class WelcomeController {
 	public function index(){
-		echo "Hola soy el metodo index";
+		echo "Hola aqui estamos en el index";
 	}
+
+	
 }
 
 //echo "Hola WelcomeController";

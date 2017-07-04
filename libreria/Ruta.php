@@ -5,7 +5,7 @@
  * Archivo para la ayuda a la lectura de las rutas
  */
 
-class Ruta {
+class Ruta{
 	/**
 	 * Metodo que permite ingresar controladores con sus respectivas rutas
 	 * Enviara los controladores a la propiedad privada que indiquemos
@@ -60,11 +60,44 @@ class Ruta {
 		    	}//foreach
 		    	//echo $controlador;
 		    	// De esta clase llamamos a la funcion getController que traera el controlador
-		    	$this->getController("index", $controlador); //Llamamos al metodo que nos recupera el controlador
+		    	 $this->getController("index",$controlador); //Llamamos al metodo que nos recupera el controlador
 		    }
 		}else{
 			//Controladores y metodos
 			//echo "Controlador";
+			//Comprobar el estado de ruta iniciando en falso
+			//El estado de ruta nos servira para validar si la ruta del controlador y metodo es correcto
+			/**
+			 * Realizamos un trim a la ruta para limpiar el "/" de decir:
+			 * "/usuarios"=>"UsuarioController"
+			 *     $ruta            $count 
+			 */
+			$estado= false;
+			foreach($this->_controladores as $ruta => $cont){
+				# ($paths) el array de rutas que ponemos en el explorador
+				# estudiantes/asdasd
+				#    0           1
+				#    Siempre recupera el primero
+				if(trim($ruta,"/") == $paths[0]){
+					//Si existe cambiamos de estado
+					$estado = true;
+					//El controlador sera igual al count de la parte superior
+					$controlador = $cont;
+					//Metodo vacio entonces es index automaticamente
+					$metodo = "";
+					//Si paths es mayor que 1, que es el count de la ruta de un explode
+					if(count($paths) > 1){
+                        $metodo = $paths[1];
+                    } //if count
+					//PAsamos metodo y controlador
+					$this->getController($metodo,$controlador);
+				}
+			}
+			//Fuera del foreach corobamos estado 
+			if($estado == false){
+                die("error en la ruta");
+            }
+			
 		}//if
 		
 	} //function submit
@@ -75,13 +108,13 @@ class Ruta {
 	 * @param  $metodo, y $controlador
 	 * @return [type]              [description]
 	 */
-	public function getController($metodo, $controlador ){
+	public function getController($metodo,$controlador){
 		$metodoController = ""; //metodo que se ejecutar inciando vacio
 		//Condicional para comprobar si es index o no el metodo del controlador en la ruta
-		if($metodo == "index" || $metodo == ""){
+		if($metodo == "index" || $metodo ==""){
 			$metodoController = "index";
 		}else{
-			$metodoController == $metodo;
+			$metodoController = $metodo;
 		}
 		//Incluye el c0ntrolador
 		$this->incluirControlador($controlador);
