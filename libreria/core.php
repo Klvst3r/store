@@ -15,8 +15,14 @@
 define("APP_RUTA",RUTA_BASE."app/");
 //echo APP_RUTA;
 define("VISTA_RUTA",RUTA_BASE."view/");
+define("LIBRERIA",RUTA_BASE."libreria/");
+
 define("RUTA",APP_RUTA."rutas/");
 //echo RUTA;
+
+//Configuraciones
+include RUTA_BASE."config/config.php";
+include LIBRERIA."ORM/Conexion.php";
 
 //Vistas
 include "Vista.php";

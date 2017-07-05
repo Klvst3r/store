@@ -6,7 +6,7 @@
  * Date: 03-07-2017
  * Time: 14h30
  */
-include "../config/config.php";
+//include "../config/config.php";
 
 
 /*

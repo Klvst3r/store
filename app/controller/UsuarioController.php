@@ -16,7 +16,7 @@ class UsuarioController {
         $us = array(
             1=>array(
                 "nombre"=>"Klvst3r",
-                "apellido"=>"Costal",
+                "apellido"=>"Kozlov",
             ),
             2=>array(
                 "nombre"=>"Stark",
