@@ -35,6 +35,28 @@ class Vista {
 			//echo VISTA_RUTA.$ruta;
 			//Comprobamos si existe el archivo
 			if(file_exists(VISTA_RUTA.$ruta)){
+				//comprobar si existe $key en los parametros de la ruta como atrreglo si es diferente de nulo
+				if(!is_null($key)){
+					//si viene en formato array
+					if(is_array($key)){
+						/**
+						 * 
+						 * Extrar los key y los convierte a variavles
+						 */
+						//Todo lo que viene como key en el arreglo lo convierte a variable y a la vez su valor lo va a signando a ese key
+						extract($key, EXTR_PREFIX_SAME,"");
+					}else {
+						//creamos una variable que tiene el nombre del key que sea igual al value 
+						//Viene en la vista como ("index","usus",$usuarios)
+						//Crea una variable con el nombre con el que pasamos como parametro y el valor sea el mismo de value
+						//Se creara una variable usus y con el valor respectivo 
+						//("index","usuarios",$usuarios)
+						//creando al final $usus = $usuarios;
+						//
+						${$key} = $value;
+					}//if is_array
+				}
+
 				//Si existe la vista incluimos el archivo de la ruta
 				include VISTA_RUTA.$ruta;
 			}else {
@@ -42,5 +64,7 @@ class Vista {
 			}//if
 		} //if path != "" 
 	} //function crear
+	//para no generar error en el controlador de usuarios en la vista::crear por que es vacio y no retorna nada
+	// return null;
 
 } //Class vista

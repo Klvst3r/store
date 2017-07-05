@@ -9,7 +9,7 @@
  */
 
 //Creamos una lista con un JSON Encode de la variable
-//echo json_encode($usuarios);
+echo json_encode($usuar);
 
 ?>
 <!DOCTYPE html>
@@ -22,3 +22,4 @@
 	<h1>Hola Vistas Dinamicas en PHP - PDO</h1>
 </body>
 </html>
+
