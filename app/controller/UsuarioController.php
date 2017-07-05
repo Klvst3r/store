@@ -13,7 +13,7 @@ class UsuarioController {
 		//echo "Raiz del proyecto";
 		//En lugar de visualizar mensaje, crearemos la vista 
 		//Retornamos la vista de usuarios
-		return Vista::crear("usuario.lista");
+		return Vista::crear("usuarios.lista");
 	}
 
 	public function insertar(){
