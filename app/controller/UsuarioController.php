@@ -5,9 +5,15 @@
  *  Ruteo de controladores y metodos index e insertar
  */
 
+use vista\Vista;
+
+
 class UsuarioController {
 	public function index(){
-		echo "Raiz del proyecto";
+		//echo "Raiz del proyecto";
+		//En lugar de visualizar mensaje, crearemos la vista 
+		//Retornamos la vista de usuarios
+		return Vista::crear("usuario.lista");
 	}
 
 	public function insertar(){
