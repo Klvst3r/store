@@ -141,7 +141,7 @@ class Ruta{
 				die("No existe el metodo");
 			}
 		}else {
-			die("No existe la clase WelcomeController");
+			die("No existe la clase WelcomeController"); 
 		}
 	
 	} //function getController
