@@ -1,8 +1,16 @@
-<?php
+<?php namespace App;
 /*Geter y Setters
 http://mikeangstadt.name/projects/getter-setter-gen/
 */
-class User {
+//Usamos una clase la libreria ORM
+use libreria\ORM\Modelo;
+//Extendemos la clase del modelo
+class User extends Modelo{
+	
+	/**
+	 * Se eleminan los geters y setters por que se generaran dinamicamente
+	 */
+	/*
 	private $id;
 	private $email;
 	private $usuario;
@@ -67,6 +75,6 @@ class User {
 	public function setPrivilegio($privilegio){
 		$this->privilegio = $privilegio;
 	}
-
+	*/
 
 }

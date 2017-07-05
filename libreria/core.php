@@ -27,7 +27,10 @@ define("MODELS",APP_RUTA."model/");
 
 //Configuraciones
 include RUTA_BASE."config/config.php";
-include LIBRERIA."ORM/Conexion.php";
+include "ORM/Conexion.php";
+
+//Incluir la libreria ORM 
+include "ORM/Modelo.php";
 
 //Ejecución de los modelos
 includeModels();
