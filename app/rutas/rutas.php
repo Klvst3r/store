@@ -13,8 +13,9 @@ $ruta = new Ruta();
 /**
  * Establecemos las rutas de sus controladores respectivos
  * Son los archivos que procesaran las rutas principales del proyecto
+ * al escribir usu estamos llamando al usuarioController
  */
 $ruta->controladores(array(
 	"/"=>"WelcomeController",
-	"/usuarios"=>"UsuarioController"
+	"/usu"=>"UsuarioController"
 	));

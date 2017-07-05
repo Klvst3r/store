@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace App\model;
 /*Geter y Setters
 http://mikeangstadt.name/projects/getter-setter-gen/
 */
@@ -6,7 +6,10 @@ http://mikeangstadt.name/projects/getter-setter-gen/
 use libreria\ORM\Modelo;
 //Extendemos la clase del modelo
 class User extends Modelo{
+	//Como esta extendiendose de modelo incluimos los getters y setters dinamicamente
 	
+
+
 	/**
 	 * Se eleminan los geters y setters por que se generaran dinamicamente
 	 */
