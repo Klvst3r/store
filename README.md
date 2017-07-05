@@ -9,6 +9,4 @@ La funcionalidad sera con el uso de las tecnologas jQuery, Node.js.
 
 Los paquetes de node.js se llevan con npm.
 
-# Avance 10c09'05
-
 

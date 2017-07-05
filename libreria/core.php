@@ -9,7 +9,10 @@
  * 
  */
 
+
 //Constantes de Entorno de manera global
+//Helpers del ORM 
+include "help/helps.php";
 
 //Ruta de la carpeta App
 define("APP_RUTA",RUTA_BASE."app/");
@@ -19,6 +22,8 @@ define("LIBRERIA",RUTA_BASE."libreria/");
 
 define("RUTA",APP_RUTA."rutas/");
 //echo RUTA;
+//Estaran todos los modelos
+define("MODELS",APP_RUTA."model/");
 
 //Configuraciones
 include RUTA_BASE."config/config.php";
@@ -29,3 +34,5 @@ include "Vista.php";
 // Rutas 
 include "Ruta.php";
 include RUTA."rutas.php";
+
+//Importamos modelos dinamicamente
