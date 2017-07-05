@@ -4,8 +4,12 @@
  */
 
 /**
- * Al tener completo la vista dinamica agregamos codigo
+ * Al tener completo la vista dinamica agregamos codigo, ya podremos agregar codigo de Vistas cargadas dinamicamente 
+ * Se esperan datos del controlador a la vista ya sea con variables creados desde el controlador
  */
+
+//Creamos una lista con un JSON Encode de la variable
+//echo json_encode($usuarios);
 
 ?>
 <!DOCTYPE html>

@@ -3,7 +3,8 @@
 //Creación de la clase vista para las vistas en view
 
 class Vista {
-	public static function crear($path){
+	//Se reciben parametros los cuales no necesariamente deben ser obligatorios entonces al parametro le agregamos "null"
+	public static function crear($path,$key=null,$value=null){
 		//echo "Vista";
 		//return "Hola Vista";
 		//Pasamos la ruta o el path
