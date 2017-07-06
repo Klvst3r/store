@@ -1,4 +1,4 @@
-<?php 
+<?php  
 
 /**
  * Modelo de la tabla Productos

@@ -11,7 +11,7 @@
 
 namespace libreria\ORM;
 
-class Modelo {
+class Modelo extends EtORM{
 	//Funciones o propiedades que contendra a todas las propiedades dinamicamente
 	//Creamos una propiedad que contendra un array de propiedades
 	private $data = array();
@@ -21,11 +21,8 @@ class Modelo {
 		$this->data = $data;
 	}
 	//Funciones Magicas definidas PHP para generar los getters y setters que alimentaran el sistema dinamicamente
-	
 	/**
-	 * [__get Al hacer un get dinamico de la pripiedad, con el objeto instanciado debe traera la prpiedad nombre
-	 * @param  [type] $name [description]
-	 * @return [type]       [description]
+	 * [__get Al hacer un get dinamico de la propiedad, con el objeto instanciado debe traera la prpiedad nombre
 	 */
 	public function __get($name)
 	{

@@ -29,6 +29,8 @@ define("MODELS",APP_RUTA."model/");
 include RUTA_BASE."config/config.php";
 include "ORM/Conexion.php";
 
+//Incluir la libreria ORM EtORM
+include "ORM/EtORM.php";
 //Incluir la libreria ORM 
 include "ORM/Modelo.php";
 
