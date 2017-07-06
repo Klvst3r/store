@@ -12,7 +12,7 @@
 
 //Constantes de Entorno de manera global
 //Helpers del ORM 
-include "help/helps.php";
+require_once("help/helps.php");
 
 //Ruta de la carpeta App
 define("APP_RUTA",RUTA_BASE."app/");
@@ -25,20 +25,21 @@ define("RUTA",APP_RUTA."rutas/");
 //Estaran todos los modelos
 define("MODELS",APP_RUTA."model/");
 
-//Configuraciones
-include RUTA_BASE."config/config.php";
-include "ORM/Conexion.php";
+//Configuraciones, que se requeriran directamente para la aplicación 
+require_once(RUTA_BASE."config/config.php");
+//Se agrega para ser usada la conexión y no necesariamente incluir contenido del archivo
+require_once("ORM/Conexion.php");
 
 //Incluir la libreria ORM EtORM
-include "ORM/EtORM.php";
-//Incluir la libreria ORM 
-include "ORM/Modelo.php";
+require_once("ORM/EtORM.php");
+//Incluir la libreria ORM, se usara el archivo y no el contenido
+require_once("ORM/Modelo.php");
 
 //Ejecución de los modelos
 includeModels();
 
 //Vistas
-include "Vista.php";
+require_once("Vista.php");
 // Rutas 
 include "Ruta.php";
 include RUTA."rutas.php";
