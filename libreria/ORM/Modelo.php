@@ -11,10 +11,13 @@
 
 namespace libreria\ORM;
 
-class Modelo extends EtORM{
+class Modelo extends EtORM {
 	//Funciones o propiedades que contendra a todas las propiedades dinamicamente
 	//Creamos una propiedad que contendra un array de propiedades
 	private $data = array();
+
+	//Propiedades protegidas
+	protected static $table;
 
 	//Generamos un constructor y ppuede o no llevarlo por eso el parametro null
 	function __construct($data = null) {

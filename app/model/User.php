@@ -6,6 +6,13 @@ http://mikeangstadt.name/projects/getter-setter-gen/
 use libreria\ORM\Modelo;
 //Extendemos la clase del modelo
 class User extends Modelo{
+	/**
+	 * Tomara del archivo el table que hemos puesto del modelo que es user
+	 * Estamos ligando el modelo ORM enviando la tabla a la vista
+	 * Con el nombre de la tabla ligada a este modelo
+	 */
+	protected static $table = "users";
+
 	//Como esta extendiendose de modelo incluimos los getters y setters dinamicamente
 	
 

@@ -12,7 +12,20 @@ use App\model\User;
 
 
 class UsuarioController {
-	public function index(){
+	public function index(){ 
+        //Con esto ya no hacemos un set y get por que ya tenemos los etodos dinamicos implementados dentro de model del archivo Modelo.php
+        
+        $user = new User();
+        //Automaticamente hacemos un set()
+        $user->nombre = "Klvst3r";
+        $user->apellido = "Kozlov";
+
+        //Automaticamente hacemos un get
+        //echo $user->nombre;
+        
+        $user->getTable();
+
+
         //El archivo index se crea en el momento en que rutas ya que tenemos ruteado usuarios
         //Podemos rutearlo cuando tengamos usu
         //Dentro de los controladores se usa las vistas y los modelos
@@ -48,16 +61,7 @@ class UsuarioController {
             "usuar"=>$us,
         ));*/
 
-        //Con esto ya no hacemos un set y get por que ya tenemos los etodos dinamicos implementados dentro de model del archivo Modelo.php
         
-        $user = new User();
-        //Automaticamente hacemos un set()
-        $user->nombre = "Klvst3r";
-        $user->apellido = "Kozlov";
-
-        //Automaticamente hacemos un get
-        echo $user->nombre;
-
 	}
 
 	public function insertar(){
