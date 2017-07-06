@@ -21,9 +21,13 @@ class UsuarioController {
         $user->apellido = "Kozlov";
 
         //Automaticamente hacemos un get
-        //echo $user->nombre;
+        echo $user->nombre;
         
-        $user->getTable();
+        //Se envia el nombre de la tabla en el controlador
+        //$user->getTable();
+        
+        //Ejemplo de columnas
+        
 
 
         //El archivo index se crea en el momento en que rutas ya que tenemos ruteado usuarios

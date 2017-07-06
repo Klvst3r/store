@@ -16,7 +16,7 @@ class Modelo extends EtORM {
 	//Creamos una propiedad que contendra un array de propiedades
 	private $data = array();
 
-	//Propiedades protegidas
+	//Propiedades protegidas, 
 	protected static $table;
 
 	//Generamos un constructor y ppuede o no llevarlo por eso el parametro null
@@ -31,7 +31,11 @@ class Modelo extends EtORM {
 	{
 	    //TODO: Implement __get() method,
 	    //Reornara la propiedad de manera dinamica o magica
-	    return $this->data[$name];
+	    //Verifica si existe el key en el array o esa clave dentro del arreglo sino no lo retorna 
+	    if (array_key_exists($name, $this->data)){
+	    	return $this->data[$name];
+	    }
+	    
 	}
 	 
 	public function __set($name, $value)
@@ -40,6 +44,11 @@ class Modelo extends EtORM {
 		//Al hacer un set o enviar una propiedad al objeto, le diremos  que en la posicion $name al data le pondra el valor enviado
 	    $this->data[$name] = $value;
 	    //return $this;
+	}
+
+	//Codigo que define la obtencion de las columnas recuperamos columnas de tabla
+	public function getColumnas(){
+		return $this->data;
 	}
 	
 } //Class Modelo
