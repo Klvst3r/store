@@ -42,9 +42,9 @@ class EtORM extends \Conexion{
 					$value = 0;
 				}
 				$filtered[$key] = $value;
-				echo $key." - ".$value;
+				//decho $key." - ".$value;
 			}
-			echo "<br/>";
+			//decho "<br/>";
 			//echo $key."<br>";
 		} //foreach $values
 		$columns = array_keys($filtered); 
@@ -68,7 +68,7 @@ class EtORM extends \Conexion{
 			echo "<br/>";*/
 			$columns = join(", ", $columns);
             $query = "INSERT INTO " . static ::$table . " ($columns) VALUES ($params)";
-			echo $query;
+			//echo $query;
 
 		} //if $this->id
 
