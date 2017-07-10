@@ -3,11 +3,11 @@
  * Implementación del modelo de Venta
  */
 //Se agrega lo mismo que users
-
+// se Agrega la libreria Modelo del la libreria ORM
 use libreria\ORM\Modelo;
 
 Class Venta extends Modelo{
-	//Nombre de la Tabla de Ventas
+	//Nombre de la Tabla de Ventas, protegido por el concepto de encapsulamiento
 	protected static $table = "ventas";
 
 

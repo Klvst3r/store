@@ -1,8 +1,9 @@
 <?php namespace App\model;
+//lo de arriba es por que estamos en la carpeta model de la app
 /*Geter y Setters
 http://mikeangstadt.name/projects/getter-setter-gen/
 */
-//Usamos una clase la libreria ORM
+//Usamos una clase la libreria ORM, se importa directamente
 use libreria\ORM\Modelo;
 //Extendemos la clase del modelo
 class User extends Modelo{

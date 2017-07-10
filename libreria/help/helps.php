@@ -13,7 +13,7 @@ function includeModels(){
 	while($archivo = readdir($directorio )){
 		//VErificamos si no es directorio, sera un archivo .php
 		if(!is_dir($archivo)){
-			//sin esto no puede funcionar
+			//sin esto no puede funcionar, la dirde models se concatena el archivo
 			require_once MODELS.$archivo;
 		}//if
 	}//while

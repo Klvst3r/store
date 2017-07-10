@@ -36,7 +36,7 @@ class EtORM extends \Conexion{
 		//Recorre los nombres de los compos los key del array data que se ha enviado por getColumnas()
 		//Funcion que recupera toda la data las propiedades asignadas manualmente
 		foreach ($values as $key => $value) {
-			//Mientras que haya un id no lo lance al array y si lo hay que lo concatene
+			//Mientras que haya un id no lo lance al array y si lo hay que lo concatena al array
 			if ($value !== null && !is_integer($key) && $value !== '' && strpos($key, 'obj_') === false && $key !== 'id') {
 				if ($value === false) {
 					$value = 0;
@@ -47,10 +47,15 @@ class EtORM extends \Conexion{
 			//decho "<br/>";
 			//echo $key."<br>";
 		} //foreach $values
-		$columns = array_keys($filtered); 
+		//Extraemtodo ese filtered en columnas y almacenarlas en un arreglo
+		$columns = array_keys($filtered); //obteniendo columnas
+		//visualizamos las columnas recuperadas
 		 //echo json_encode($columns);
 		 //echo "<br/>";
 		
+		/**
+		 *  Si este modelo tiene id la posicion del 
+		 */
 		if ($this->id) {
 			$params = "";
             foreach($columns as $columna){

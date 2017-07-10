@@ -8,6 +8,7 @@
 use vista\Vista;
 
 //Dentro del controlador hacemos un use de App\model\User del cual nos basariamos para hacer en el controlador cualquier tipo de cosas
+// Dentro de controladores de incluyen los modelos, esta referenciado la clase User
 use App\model\User;
 
 
@@ -20,7 +21,7 @@ class UsuarioController {
         $user->nombre = "Klvst3r";
         $user->apellido = "Kozlov";
 
-        //Automaticamente hacemos un get
+        //Automaticamente hacemos un get, para imprimir el nombre en pantalla con los metodos dinamicos que se han implementado
         echo $user->nombre;
         
         //Se envia el nombre de la tabla en el controlador
