@@ -16,6 +16,8 @@ class VentaController {
 
 		//Funcion del ORM para insertar los datos directamente
 		$venta->guardar();
+		//recuperamos el ultimo id que se inserto
+		//echo $venta->id;
 	}
 
 }

@@ -54,11 +54,19 @@ class EtORM extends \Conexion{
 		 //echo "<br/>";
 		
 		/**
-		 *  Si este modelo tiene id la posicion del 
+		 *  Si este modelo tiene id la posicion de la tabla desde el controlador
+		 *  Ej. en Venta Controller
+		 *  	$venta = new Venta();
+		 *  	$venta->id = 2;
+		 *  	$venta->cliente = "Klvster";
+		 *  	$venta->fecha = date("Y-m-d");
+		 *  	$venta->guardar();
+		 *  Con esto se actualizara con un id, y no se guardara sino se actualizara por que ya existe el id en el objeto venta
 		 */
+		//Si este modelo que viene siendo venta, crea una variable
 		if ($this->id) {
 			$params = "";
-            foreach($columns as $columna){
+            foreach($columns as $columna){ //recorre columna por columna concatenando para construir la sentencia SQL.
                 $params .= $columna." = :".$columna.",";
             }//foreach
 			$params =  trim($params,",");
@@ -66,25 +74,48 @@ class EtORM extends \Conexion{
 			//echo $query;
 
 		} else {
-            $params = join(", :", $columns);
-            $params = ":".$params;
+			//Como no se pasa en los parametros un id, se inserta lo que se recupera de la variable table dentro del modelo 
+			//el nombre de la tabla
+            $params = join(", :", $columns); //Le pasamos las columnas
+            $params = ":".$params; //le aregamos el arreglo de las columnas
 			/*echo "<br/>";
 			echo $params;
 			echo "<br/>";*/
 			$columns = join(", ", $columns);
+			/**
+			 * Inserta en las columnas los parametros de la selección de manera dinamica de acuerdo a los elementos
+			 * considerados por el controlador en el controlador VentaController.php
+			 * 	$venta->cliente = "Klvst3r";
+			 *  $venta->fecha = date("Y-m-d");
+			 */
             $query = "INSERT INTO " . static ::$table . " ($columns) VALUES ($params)";
 			//echo $query;
 
 		} //if $this->id
 
 		//Preparando la consulta
+		// Hacemos un getConexion() para que se conecte de nuevo
 		self::getConexion();
+		//En la variable $res peraprara la conexión con lo que se recupero de $cnx 
+		//como en la parte superior en:
+		//	self::$cnx = \Conexion::conectar();
+		//	Reafirmamos que el cnx se llene con la conexion PDO y luego preparamos enviando como parametro un query
+		/**
+		 * PDO::prepare - Prepara una sentencia para su ejecución y devuelve un objeto sentencia
+		 * 
+		 */
 		$res = self::$cnx->prepare($query);
+		//La variable filter que habia llenado los arrays cargado de las columnas y las recorremos con nombre, vloar
 		foreach ($filtered as $key => &$val) { //Cargamos todos los valores de
+			//Cada vez que encuentra un val del array de columnas:
+			//ej:
+			//	:cliente = Klvst3r
+			//	El key que encuentre lo llenara con el valor del filtered, Klvst3r lo esta enviando como parametro de value
 			$res->bindParam(":".$key, $val);
 		}//foreach
 		//Realizamos una respuesta
 		if($res->execute()){
+				//Al realizar la ejecución recuperamos el ultimo id insertado que es el id actual de la venta
                 $this->id = self::$cnx->lastInsertId();
 			self::$cnx = null;
 			return true;
