@@ -48,8 +48,11 @@ class VentaController {
 	public function busqueda(){
 		$id = $_REQUEST["id"];
 		//Se busca una venta de la clase venta
-		$venta = Venta::find($id);
-		echo $venta->cliente;
+		$venta = Venta::find(24);
+		//echo $venta->cliente;
+		//Ej de modificación de contenido por identificador con la busqueda
+		$venta->cliente="Patron";
+		$venta->guardar();
 	}
 
 }
