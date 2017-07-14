@@ -22,11 +22,27 @@ class VentaController {
 
 	public function buscar(){
 		//Buscar una venta por cliente que es la columna con el valor Klvstr y lo alamacenamos en una variable
-		//Donde se alamacenaran todas las ventas de ese cliente
-		$ventasdeklvst3r = Venta::where("cliente","Klvst3r");
+		//ej con url: http://localhost/dev/store/ventas/buscar?cliente=Klvst3r
+		$cliente = $_REQUEST["cliente"];
 
-		print_r($ventasdeklvst3r);
+		//Donde se alamacenaran todas las ventas de ese cliente
+		//$ventasdeklvst3r = Venta::where("cliente","Klvst3r");
+		$ventasdeklvst3r = Venta::where("cliente",$cliente );
+
+		//print_r($ventasdeklvst3r);
 		//Para visualizar ur: localhost/dev/store/ventas/buscar
+
+		//Imprime la columna $clinete de cuenatos clinetes llamados "Klvst3r" existan		
+		foreach ($ventasdeklvst3r as $venta) {
+			//echo $venta->cliente." - ".$venta->fecha."<br/>";
+			/**
+			 * Ej salida
+			 * Klvst3r - 2017-07-06
+			 * Klvst3r - 2017-07-13
+			 */
+			//Con id
+			echo $venta->id." - ".$venta->cliente." - ".$venta->fecha."<br/>";
+		}
 	}
 
 }
