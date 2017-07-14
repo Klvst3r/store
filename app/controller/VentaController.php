@@ -18,6 +18,15 @@ class VentaController {
 		$venta->guardar();
 		//recuperamos el ultimo id que se inserto
 		//echo $venta->id;
+	} //Funcion Index
+
+	public function buscar(){
+		//Buscar una venta por cliente que es la columna con el valor Klvstr y lo alamacenamos en una variable
+		//Donde se alamacenaran todas las ventas de ese cliente
+		$ventasdeklvst3r = Venta::where("cliente","Klvst3r");
+
+		print_r($ventasdeklvst3r);
+		//Para visualizar ur: localhost/dev/store/ventas/buscar
 	}
 
 }

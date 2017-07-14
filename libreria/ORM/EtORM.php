@@ -117,6 +117,7 @@ class EtORM extends \Conexion{
 		if($res->execute()){
 				//Al realizar la ejecución recuperamos el ultimo id insertado que es el id actual de la venta
                 $this->id = self::$cnx->lastInsertId();
+             //vaciamos la conexion
 			self::$cnx = null;
 			return true;
 		}else{
@@ -125,6 +126,60 @@ class EtORM extends \Conexion{
 
 
 	} //metodo guardar
+
+	/**
+	 * 
+	 * Metodo where
+	 * Función para buscar una fila  denro de unuestra bd por medio de criterio, por nombre, por id
+	 * o por alguna columna en especial recuperando el valor
+	 */
+	/**
+	 * [where Funcion de busqueda de fila en un aBD]
+	 * @param  [type] $columna [Nombre del campo]
+	 * @param  [type] $valor   [Valor de busqueda]
+	 * @return [type]          [description]
+	 */
+	public static function where($columna, $valor){
+		// static::venta del Modelo Venta.php
+		// Si es nombre, la busqueda seria por nombre:nombre
+		// ej: select * from ventas where nombre = : nombre
+		$query = "SELECT * FROM ". static ::$table ." WHERE ".$columna." = :".$columna;
+		//echo $query."<br/>";
+		//Obtenemos una nueva clase, que vendria siendo la clase user de \app\model\Venta.php, class Venta
+		//Esta llamando la clase Venta directamente, $class recupera esa clase y la almacena
+		$class = get_called_class();//La clase se llama Venta
+		//Nos traemos la conexión 
+		self::getConexion();
+		//Preparamos la consulta a traves de la variable $cnx variable de conexión
+		$res = self::$cnx->prepare($query);
+		// Pasamos el parametro con ($res->bindParam) del parametro del llamdo de la funcion
+		$res->bindParam(":".$columna, $valor);
+		//$res->setFetchMode( PDO::FETCH_CLASS, $class);
+		// Ejecuta la consulta
+		$res->execute();
+		//$filas = $res->fetch();
+		//echo count($filas);
+		// Hacemos un recorrigo de cada respuesta que nos da como un afila un $row
+		foreach ($res as $row) {
+			//$obj es un objeto como instancia de la clase que se llama Venta y con cada fila lo va rellenando
+			//a todo el data que viene en el modelo \libreria\ORM\Modelo.php 
+			//CAda ves que se va construyendo el modelo le vamos pasando un dato igual a null del constructor
+			//Por lo tanto supongamos que viene de la BD un id, un nombre y una fila y se va creando una nueva instancia 
+			// y lo va enviando 
+			$obj[] = new $class($row);
+		}
+		//Al final devielve el objeto, por cada fila que vaya encontrando va creando un nuevo objeto con el nombre de la clase Venta
+		return $obj;
+		/**
+		 * Ej. Salida cuando encuentra el valor, si hay mas valores los alamacera en el arreglo
+		 * url: /localhost/dev/store/ventas/buscar
+		 * SELECT * FROM ventas WHERE cliente = :cliente
+		 * Array ( [0] => APP\model\Venta Object 
+		 * ( [data:libreria\ORM\Modelo:private] => Array (
+		 *  [id] => 17 [0] => 17 [cliente] => Klvst3r [1] => Klvst3r [fecha] => 2017-07-06 [2] => 2017-07-06
+		 *   ) ) )
+		 */
+	} //metodo where
 
 
 } //Class
