@@ -46,6 +46,11 @@ class VentaController {
 	} //buscar
 
 	public function busqueda(){
+		/**
+		 * Ya que en ORM etORM en la funcion guardar es que verifica si tiene el id si lo tienen hace un update en lugar de un insert
+		 * desde la url puede hacer: http://localhost/dev/store/ventas/busqueda?id=24 para actualizar el id con valor 24
+		 * 
+		 */
 		$id = $_REQUEST["id"];
 		//Se busca una venta de la clase venta
 		$venta = Venta::find(24);
@@ -53,6 +58,6 @@ class VentaController {
 		//Ej de modificación de contenido por identificador con la busqueda
 		$venta->cliente="Patron";
 		$venta->guardar();
-	}
+	}//busqueda
 
 }
