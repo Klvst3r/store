@@ -42,7 +42,13 @@ class VentaController {
 			 */
 			//Con id
 			echo $venta->id." - ".$venta->cliente." - ".$venta->fecha."<br/>";
-		}
+		} //foreach
+	} //buscar
+
+	public function busqueda(){
+		//Se busca una venta de la clase venta
+		$venta = Venta::find(24);
+		echo $venta->cliente;
 	}
 
 }

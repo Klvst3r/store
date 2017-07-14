@@ -181,5 +181,13 @@ class EtORM extends \Conexion{
 		 */
 	} //metodo where
 
+	
+	public static function find($id){
+		//echo get_called_class();
+		// Llamamos al id pasado como parametro
+		$resultado = self::where("id",$id);
+		//retorna el primer resultado al modelo
+		return $resultado[0];
+	}
 
 } //Class
