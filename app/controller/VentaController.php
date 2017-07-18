@@ -71,7 +71,8 @@ class VentaController {
 		foreach($ventas as $venta){
 			//Se imprime todos los id de todas las ventas
 			//echo $venta->id."<br/>";
-			echo $venta->id." - ".$venta->cliente."<br/>";
+			//echo $venta->id." - ".$venta->cliente."<br/>";
+			echo $venta->id." - ".$venta->cliente." - ".$venta->fecha."<br/>";
 		}
 	}
 
