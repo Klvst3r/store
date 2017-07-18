@@ -188,6 +188,30 @@ class EtORM extends \Conexion{
 		$resultado = self::where("id",$id);
 		//retorna el primer resultado al modelo
 		return $resultado[0];
-	}
+	} //find
+
+	public static function all(){
+		// Realiza consulta de todos los elementos de una tabla, recupera un protected table que es el nombre de la tabla
+		// En este momento es la tabla ventas
+		$query = "SELECT * FROM ". static ::$table ;
+		//echo $query;
+		//Almacena el nombre de la clase
+		$class = get_called_class();
+		//Conecta con la BD
+		self::getConexion();
+		//Hace la preparación del query
+		$res = self::$cnx->prepare($query);
+		//$res->setFetchMode( PDO::FETCH_CLASS, $class);
+		//Ejecuta
+		$res->execute();
+		//$filas = $res->fetch();
+		//echo count($filas);
+		//Por cada fila que encunetra lo instancia la clase que se ha visto que en este momento es venta y envia los datos como row
+		foreach ($res as $row) {
+			$obj[] = new $class($row);
+		} //foreach
+		//Retorna un listado de objetos
+		return $obj;
+	}//all
 
 } //Class

@@ -60,4 +60,17 @@ class VentaController {
 		$venta->guardar();
 	}//busqueda
 
+	public function listado(){
+		//Listado de ventas
+		$ventas   = Venta::all();
+
+		//1. Para visualizar ventas url: http://localhost/dev/store/ventas/listado
+
+		//Se hace el recorrido de ventas
+		foreach($ventas as $venta){
+			//Se imprime todos los id de todas las ventas
+			echo $venta->id."<br/>";
+		}
+	}
+
 }
