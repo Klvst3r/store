@@ -65,11 +65,13 @@ class VentaController {
 		$ventas   = Venta::all();
 
 		//1. Para visualizar ventas url: http://localhost/dev/store/ventas/listado
+		////2. Para visualizar ventas id y cliente url: http://localhost/dev/store/ventas/listado
 
 		//Se hace el recorrido de ventas
 		foreach($ventas as $venta){
 			//Se imprime todos los id de todas las ventas
-			echo $venta->id."<br/>";
+			//echo $venta->id."<br/>";
+			echo $venta->id." - ".$venta->cliente."<br/>";
 		}
 	}
 
