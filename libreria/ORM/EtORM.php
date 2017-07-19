@@ -38,24 +38,30 @@ class EtORM extends \Conexion{
 
 	/**
 	 * Metodo: Eliminar
+	 * Especificamos el valor a liminar y la columna, se puede especificar o llmarse desde el objeto
 	 */
 	public function eliminar($valor=null, $columna=null){
-		$query = "DELETE FROM ". static::$table . " WHERE ".(is_null($columna)?'')
+		//eleimna de la tabla los elementos, si es null nos pone id
+		$query = "DELETE FROM ". static::$table . " WHERE ".(is_null($columna)?"id":$columna)." = :p";
 		//echo $query;
 		self::getConexion();
 		//Prepara la conexión
 		$res = self::$cnx->prepare($query);
 		//Agregamos los parametros
+		//Si el valor es diferente de nulo, loa agrega como parametro, en caso contraro de que no existiera el valor
+		//simplemente le ponemos el valor del id del modelo o del registro que se haya puesto 
 		if(!is_null($valor)){
 			$res->bindParam(":p",$valor);
 		}else{
 			$res->bindParam(":p",(is_null($this->id)?null:$this->id));
 		}//if
-		//ejecutar
+		//ejecutar al final 
 		if($res->execute()){
+			//si ejecuta el query al final desconecta y retorna true
 			self::getDesconectar();
 			return true;
 		}else{
+			//si no ejecuta el query nos retorna false
 			return false;
 		}
 
