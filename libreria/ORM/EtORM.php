@@ -25,6 +25,43 @@ class EtORM extends \Conexion{
 		// La funcion que nos conecta la Igualamos a nuestra variable de conexion
 		self::$cnx = \Conexion::conectar();
 	} //getConexion
+
+	/**
+	 * Desconectar,nos ayuda en nuestra conexion dentro de nuestro ORM. Si tenemos muchas conexiones abiertas al eliminar, buscar, insertar
+	 * Se carga y colapsar. Cada que se ejecuta un query debe desconectar
+	 */
+	public static function getDesconectar(){
+		//Desconectamos a la propiedad
+		self::$cnx = null; 
+	} //getDesconectar
+
+
+	/**
+	 * Metodo: Eliminar
+	 */
+	public function eliminar($valor=null, $columna=null){
+		$query = "DELETE FROM ". static::$table . " WHERE ".(is_null($columna)?'')
+		//echo $query;
+		self::getConexion();
+		//Prepara la conexión
+		$res = self::$cnx->prepare($query);
+		//Agregamos los parametros
+		if(!is_null($valor)){
+			$res->bindParam(":p",$valor);
+		}else{
+			$res->bindParam(":p",(is_null($this->id)?null:$this->id));
+		}//if
+		//ejecutar
+		if($res->execute()){
+			self::getDesconectar();
+			return true;
+		}else{
+			return false;
+		}
+
+	}//eliminar
+
+
 	/**
 	 * Guarda todo lo que tenga que ver guardado y actualización de datos por medio SQL a nuestra BD y por medio de nuestro modelo "user"
 	 * Codigo extremo para Guardar (Actualizar o insertar valores a la tabla)
@@ -118,7 +155,8 @@ class EtORM extends \Conexion{
 				//Al realizar la ejecución recuperamos el ultimo id insertado que es el id actual de la venta
                 $this->id = self::$cnx->lastInsertId();
              //vaciamos la conexion
-			self::$cnx = null;
+			//self::$cnx = null;
+			self::getDesconectar();
 			return true;
 		}else{
 			return false;
@@ -159,6 +197,8 @@ class EtORM extends \Conexion{
 		$res->execute();
 		//$filas = $res->fetch();
 		//echo count($filas);
+		// Inicializar el objegto para eviatar errores al ejecutar las consultas
+		$obj = [];
 		// Hacemos un recorrigo de cada respuesta que nos da como un afila un $row
 		foreach ($res as $row) {
 			//$obj es un objeto como instancia de la clase que se llama Venta y con cada fila lo va rellenando
@@ -168,6 +208,9 @@ class EtORM extends \Conexion{
 			// y lo va enviando 
 			$obj[] = new $class($row);
 		}
+		//Desconectar
+		self::getDesconectar();
+
 		//Al final devielve el objeto, por cada fila que vaya encontrando va creando un nuevo objeto con el nombre de la clase Venta
 		return $obj;
 		/**
@@ -186,8 +229,14 @@ class EtORM extends \Conexion{
 		//echo get_called_class();
 		// Llamamos al id pasado como parametro
 		$resultado = self::where("id",$id);
-		//retorna el primer resultado al modelo
-		return $resultado[0];
+		//Si el count de resultado es mayor que cero 
+		if(count($resultado)){
+			//retorna el primer resultado al modelo
+			return $resultado[0];	
+		}else{
+			return []; //devuelve cero elementos
+		}
+		
 	} //find
 
 	public static function all(){
@@ -210,6 +259,9 @@ class EtORM extends \Conexion{
 		foreach ($res as $row) {
 			$obj[] = new $class($row);
 		} //foreach
+		//Desconectar
+		self::getDesconectar();
+
 		//Retorna un listado de objetos
 		return $obj;
 	}//all
