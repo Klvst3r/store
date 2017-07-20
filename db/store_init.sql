@@ -39,7 +39,7 @@ create table ventaDetalle(
  
 -- Procedimientos almacenados
 	-- Usuarios(users)
-    create procedure registrar(
+    CREATE DEFINER = 'dev'@'localhost' PROCEDURE registrar(
 		_email varchar(100),
 		_usuario varchar(50), 
 		_pass varchar(256),

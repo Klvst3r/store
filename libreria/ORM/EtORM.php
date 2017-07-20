@@ -36,6 +36,64 @@ class EtORM extends \Conexion{
 	} //getDesconectar
 
 
+		//Procedimientos almaenados
+	/**
+	 *  Ejecutar 
+	 * @param [type] $procedimiento [nombre del procedimiento]
+	 * @param [type] $params        [En formato array]
+	 * Puede haber listado de datos que no siempre llevan parametros y por ello el parametro ava como nulo, 
+	 * ya que puede haber parametro o no puede haber parametro
+	 */ 
+	public function Ejecutar($procedimiento,$params=null){
+		//Hacemos la llamada al precedimiengto concatenado 
+		$query = "call ".$procedimiento;
+
+		//Conecta
+		self::getConexion();
+
+		//Sie es diferente de nulo el parametro, si es que existe el parametro
+		if(!is_null($params)){
+			//se crea una variable que es un cancatendaro de parametros, va ir concatenando el parametro 1, 2, 3, con una coma separada
+			$paramsa = "";
+			for($i=0;$i < count($params);$i++){
+				$paramsa .= ":".$i.",";
+			}//for
+			//borra las comas iniciales y finales en caso de que existieran, pasando el caracter que voy a eliminar, bortando la coma final
+			$paramsa = trim($paramsa,",");
+			//concateno los parametros con un cierre de parentesis
+			$paramsa .= ")";
+			//concatena con el call, le concateno un parentesis inicial y los parametros concatenados con el parentesis final
+			//esto siempre que existan parametros
+			$query .= "(".$paramsa;
+		}else{
+			//encaso de no existir parametros es vacio 
+			$query .= "()";   
+		}
+		//echo $query;
+		//agregando parametros al query
+		////preparamos la conexion con el query
+		$res = self::$cnx->prepare($query);
+		//Agregamos los parametros, el mismo for de arriba pero al $res o a la conexion lo que estamos haciendo es agregandole un parametro
+		
+		for($i=0;$i < count($params);$i++){
+			//Si es cero con la posicion 1, todo va ligado a la raiz de datos que estamos agregando
+			$res->bindParam(":".$i,$params[$i]);
+		}
+		//si no existe simplemente va vacio y lo ejecuta
+		$res->execute();
+
+		//Inicializamos una variable objeto 
+		$obj = [];
+		//recorre $res as $row, por filas y luego ese fow lo agrega a la raiz
+		foreach ($res as $row) {
+			$obj[] = $row;
+		}
+		//reotrnamos ese array directamente y tendremos un resultado correcto 
+		return $obj;
+
+	}//procedureEjecutar
+
+
 	/**
 	 * Metodo: Eliminar
 	 * Especificamos el valor a liminar y la columna, se puede especificar o llmarse desde el objeto
@@ -198,7 +256,7 @@ class EtORM extends \Conexion{
 	 */
 	public static function where($columna, $valor){
 		// static::venta del Modelo Venta.php
-		// Si es nombre, la busqueda seria por nombre:nombre
+		// Si es nombre, la busqueda seria  por nombre:nombre
 		// ej: select * from ventas where nombre = : nombre
 		$query = "SELECT * FROM ". static ::$table ." WHERE ".$columna." = :".$columna;
 		//echo $query."<br/>";

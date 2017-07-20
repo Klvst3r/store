@@ -2,6 +2,8 @@
 //Controlador de Ventas
 //Para importar la clase de Ventas del modelo de la Aplicación
 use App\model\Venta;
+//Importamos el ORM par aVenta para usarlo directamenbte en registrar venta
+use \libreria\ORM\EtORM;
 
 class VentaController {
     //Usamos La Vista
@@ -81,7 +83,7 @@ class VentaController {
 		 * Para ejecutar  
 		 */
 
-		//Se busca la posicion a eliminar en el id
+		//Se busca la posicion a  y eliminar en el id
 		$venta = Venta::find(15);
 		//Todo numero mayor de cero es verdadero lo elimina y envia mensaje
 		if(count($venta)){
@@ -93,6 +95,17 @@ class VentaController {
 			}//if interior
 		}//if exterior
 	} //eliminar
+
+	public function registrar(){
+		//El llamado del procedimiento almacenado es a nivel de BD
+		//$et = new \libreria\ORM\EtORM();
+		//creamos una nueva instancia del ORM, como ya incluismo la libreria ORM podemos llamarla directamente
+		$et = new EtORM();
+		$et->Ejecutar("newVenta",array("Jefe"));
+
+		echo "Guardado Correctamente"; 
+
+	}
 
 
 }
