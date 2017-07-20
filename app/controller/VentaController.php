@@ -97,7 +97,7 @@ class VentaController {
 	} //eliminar
 
 	public function registrar(){
-		//El llamado del procedimiento almacenado es a nivel de BD
+		//El llamado del procedimiento almacenado es a nivel de BD incluido en Workbench
 		//$et = new \libreria\ORM\EtORM();
 		//creamos una nueva instancia del ORM, como ya incluismo la libreria ORM podemos llamarla directamente
 		$et = new EtORM();
@@ -106,6 +106,19 @@ class VentaController {
 		echo "Guardado Correctamente"; 
 
 	}
+
+	public function listar(){
+		/**
+		 * url: http://localhost/dev/store/ventas/listar
+		 * 
+		 */
+		$et = new EtORM();
+		$ventas = $et->Ejecutar("listar");
+		foreach ($ventas as $venta) {
+			echo $venta[1]."<br/>";
+		}
+		
+	}//listar ventas
 
 
 }
