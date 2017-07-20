@@ -30,3 +30,9 @@ Procesos:
 16. ORM Método all()
 17. ORM Método eliminar()
 18. ORM registrar() y listar() ventas con procedimientos almacenados
+	Se concluye la parte del ORM, Routting System, los modelos.
+19. Descargando dashboard
+	Inica el diseño y BackEnd con interfaz del sistema
+	Login. - Plantillas de intranets.
+	Bootstrap Ver. White, and Black desde:
+		startbootstrap.com/template-categories/admin-dashboard/
