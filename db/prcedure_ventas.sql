@@ -4,4 +4,3 @@ insert into ventas(cliente,fecha) values(_cliente,now());
 
 call newVenta("Kozlov");
 
- 
