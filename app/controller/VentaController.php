@@ -74,6 +74,25 @@ class VentaController {
 			//echo $venta->id." - ".$venta->cliente."<br/>";
 			echo $venta->id." - ".$venta->cliente." - ".$venta->fecha."<br/>";
 		}
-	}
+	} //listado
+
+	public function eliminar(){
+		/**
+		 * Para ejecutar  
+		 */
+
+		//Se busca la posicion a eliminar en el id
+		$venta = Venta::find(15);
+		//Todo numero mayor de cero es verdadero lo elimina y envia mensaje
+		if(count($venta)){
+			//ejecuta eliminar y recupera dinamicamente
+			if($venta->eliminar()){
+				echo "Eliminado Correctamente";
+			}else{
+				echo "No se pudo eliminar";
+			}//if interior
+		}//if exterior
+	} //eliminar
+
 
 }
