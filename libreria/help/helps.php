@@ -41,7 +41,23 @@ function redireccionar($rute){
  * Funcion que nos permite escribir una url por medio del que le pasamos
  * - $rute : ruta hacia donde se va a ir.
  */
-function ruta($ruta){
+function url($rute){
 	$urlprin = str_replace("index.php","",$_SERVER["PHP_SELF"]);
-	echo trim($urlprin,"/")."".$rute;
+	echo "/".trim($urlprin,"/")."/".$rute;
 }
+
+/**
+ *  Funcion que crea el csrf, para la validación - token
+ */
+session_start();
+function csrf_token(){
+	if(isset($_SESSION["token"])){
+		unset($_SESSION["token"]);
+	}
+	$csrf_token = md5(uniqid(mt_rand(), true));
+	$_SESSION["csrf_token"] = $csrf_token;
+	echo $csrf_token;
+}
+/**
+ * Validar csrf token, por medio de sessiones
+ */

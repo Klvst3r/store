@@ -11,7 +11,7 @@
 			<div class="col-md-12 text-center">
 				<h1>Sistema de Ventas</h1>
 				<hr/>
-				<a href="#" class="btn btn-primary">Ingresar al sistema <i class="fa fa-arrow-right"></i></a>
+				<a href="<?php url("login") ?>" class="btn btn-primary">Ingresar al sistema <i class="fa fa-arrow-right"></i></a>
 			</div>
 		</div>
 	</div>

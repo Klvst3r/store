@@ -17,6 +17,7 @@ $ruta = new Ruta();
  */
 $ruta->controladores(array(
 	"/"=>"WelcomeController",
+	"/login"=>"AuthController",
 	"/usu"=>"UsuarioController",
 	"/ventas"=>"VentaController",
 	"/producto"=>"ProductoController",
