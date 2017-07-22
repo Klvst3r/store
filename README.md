@@ -42,4 +42,6 @@ Procesos:
 		http://fontawesome.io/get-started/
 			se vincula de la siguiente manera:
 			<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-		
+21. Diseño de la vista principal
+22. Diseño del formulario de login
+	Vincular el formulario con la aplicación
