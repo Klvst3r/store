@@ -109,6 +109,7 @@ class VentaController {
 
 	public function listar(){
 		/**
+		 * Se hace el llamado al procedimiento almacenado "listar"
 		 * url: http://localhost/dev/store/ventas/listar
 		 * 
 		 */

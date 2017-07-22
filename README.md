@@ -36,3 +36,10 @@ Procesos:
 	Login. - Plantillas de intranets.
 	Bootstrap Ver. White, and Black desde:
 		startbootstrap.com/template-categories/admin-dashboard/
+20. Instalando Dashboard de Bootstrap
+	bower_components cambia a data 
+	Font Awsome: http://fontawesome.io/
+		http://fontawesome.io/get-started/
+			se vincula de la siguiente manera:
+			<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+		
