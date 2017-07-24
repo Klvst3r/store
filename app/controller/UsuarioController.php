@@ -16,13 +16,24 @@ class UsuarioController {
 	public function index(){ 
         //Con esto ya no hacemos un set y get por que ya tenemos los etodos dinamicos implementados dentro de model del archivo Modelo.php
         
+        /**
+         * Para Ejecutar la inserción de un usuario en la tabla usuarios lo hacemos invocando al metodo usuario
+         * Para ello la url es simplemente:  http://localhost/dev/store/usuario y en la Bd eliminamos el registro existente
+         */
+
         $user = new User();
         //Automaticamente hacemos un set()
-        $user->nombre = "Klvst3r";
-        $user->apellido = "Kozlov";
+        $user->email = "klvst3r@gmail.com";
+        $user->usuario = "klvst3r";
+        //Encriptamos el password y se manda encriptado a la BD
+        $user->pass = password_hash("123",PASSWORD_DEFAULT);
+        $user->privilegio = "admin";
+
+        $user->guardar();
+
 
         //Automaticamente hacemos un get, para imprimir el nombre en pantalla con los metodos dinamicos que se han implementado
-        echo $user->nombre;
+        //echo $user->nombre;
         
         //Se envia el nombre de la tabla en el controlador
         //$user->getTable();
