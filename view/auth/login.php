@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Store System</title>
+    <title>Store System | Login</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php asset("bower_components/bootstrap/css/bootstrap.min.css") ?>" rel="stylesheet">
@@ -42,7 +42,8 @@
                         <h3 class="panel-title text-center">Ingresar al sistema</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" action="<?php url("login/ingresar") ?>" method="post">
+                            <input value="<?php csrf_token() ?>" name="_token" type="hidden">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email" type="email" required autocomplete="off" autofocus>
@@ -56,7 +57,7 @@
                                     </label>
                                 </div> -->
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                                <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
                             </fieldset>
                         </form>
                     </div>

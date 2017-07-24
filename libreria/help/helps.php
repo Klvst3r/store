@@ -51,13 +51,32 @@ function url($rute){
  */
 session_start();
 function csrf_token(){
+	//Si existe la funcion token se vacia o se elimina
 	if(isset($_SESSION["token"])){
 		unset($_SESSION["token"]);
 	}
+	//se crea un codigo simple de un random y se almacena en una variable
 	$csrf_token = md5(uniqid(mt_rand(), true));
+	//esa variable la introducimis a una variable de session.
 	$_SESSION["csrf_token"] = $csrf_token;
 	echo $csrf_token;
 }
 /**
  * Validar csrf token, por medio de sessiones
  */
+function val_csrf(){
+	if($_REQUEST["_token"] == $_SESSION["csrf_token"]){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+/**
+ *  Funcion que permite recuperar un input
+ *  Enviamos el name del input y sera retornado, con la finalidad de retornar todo correctamente
+ */
+function input($name){
+    $re = new \Library\help\Request();
+    return $re->input($name);
+}

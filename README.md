@@ -45,3 +45,10 @@ Procesos:
 21. Diseño de la vista principal
 22. Diseño del formulario de login
 	Vincular el formulario con la aplicación
+23. Programación del login
+24. Validación csrf para formularios
+	validacion CSRF, url: https://www.funcion13.com/preven-falsificacion-peticion-sitios-cruzados-csrf/
+25. Complementando Login	
+	Libreria de validación url: https://github.com/colosa/processmaker/blob/master/gulliver/system/class.inputfilter.php 
+	
+
