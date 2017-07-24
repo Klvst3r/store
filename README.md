@@ -50,5 +50,7 @@ Procesos:
 	validacion CSRF, url: https://www.funcion13.com/preven-falsificacion-peticion-sitios-cruzados-csrf/
 25. Complementando Login	
 	Libreria de validación url: https://github.com/colosa/processmaker/blob/master/gulliver/system/class.inputfilter.php 
+26. Sesiones y accesos con el Login 
+
 	
 

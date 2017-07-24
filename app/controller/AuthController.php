@@ -49,11 +49,18 @@ class AuthController {
 
 			//var_dump($data);
 			//Devolvemos el resultado en formato json
-			echo json_encode($data);
 			/**
 			 * Si tenemos la salida: array(0) { } No esta ingresando, que el password enviado no puede ser igual 
 			 * al interno de la bd, por que esta encriptado y debe encriptarse antes
 			 */
+			// Se imprime salida del array
+			//echo json_encode($data);
+			//Condicional para el count del data
+			if(count($data) > 0){
+				echo "Ingresaste";
+			}else{
+				echo "No puede ingresar al sistema";
+			}
 
 		}else{
 			echo "Esta mal";
