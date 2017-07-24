@@ -22,14 +22,17 @@ class UsuarioController {
          */
 
         $user = new User();
-        //Automaticamente hacemos un set()
-        $user->email = "klvst3r@gmail.com";
-        $user->usuario = "klvst3r";
-        //Encriptamos el password y se manda encriptado a la BD
-        $user->pass = password_hash("123",PASSWORD_DEFAULT);
-        $user->privilegio = "admin";
 
-        $user->guardar();
+        echo json_encode($user->all());
+        //Automaticamente hacemos un set()
+        //$user->email = "test@gmail.com";
+        //$user->usuario = "test";
+        
+        //Encriptamos el password y se manda encriptado a la BD
+        //$user->pass = password_hash("1234",PASSWORD_DEFAULT);
+        //$user->privilegio = "admin";
+
+        //$user->guardar();
 
 
         //Automaticamente hacemos un get, para imprimir el nombre en pantalla con los metodos dinamicos que se han implementado
@@ -83,4 +86,22 @@ class UsuarioController {
 	public function insertar(){
 		/*echo "Insertado Correctamente";*/
 	}
+
+    public function agregar(){
+        $user = new User();
+
+        //echo json_encode($user->all());
+        //Automaticamente hacemos un set()
+        $user->email = "test@gmail.com";
+        $user->usuario = "test";
+        
+        //Encriptamos el password y se manda encriptado a la BD
+        //$user->pass = password_hash("1234",PASSWORD_DEFAULT);
+        //Recurrimo al metodo de encriptacion siguiente
+        $user->pass=crypt("1234",'$2a$07$usesomesillystringforsalt$');
+        $user->privilegio = "admin";
+
+        $user->guardar();
+
+    }
 }

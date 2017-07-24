@@ -2,6 +2,8 @@
 
 //Para no estar repitiendo cada llamada a las vistas 
 use \vista\Vista;
+use App\model\User;
+use libreria\ORM\EtORM;
 
 class AuthController {
 	public function index(){
@@ -19,7 +21,34 @@ class AuthController {
 			 * Al recibir los valores del form aca se procesaran los valores,
 			 * Se usa una libreria para recibir los valores de varias maneras de validación posibles
 			 */
-			echo input("email");
+			//echo input("email");
+			//Se devuelve tambien el pass
+			//echo "<br/>";
+			//echo input("password");	
+
+			/**
+			 * Por medio del modelo haremos la ejecución de procedmiento de login
+			 * Se hace uso del ORM 
+			 * para el testeo del login urL: http://localhost/dev/store/login/ingresar
+			 */
+			$objOrm = new EtORM();
+
+			//Ejecutamos el procedimiento dandole una variable
+			//Devolvemos todo lo que retorne la ejecución a un array $data.
+			//$data = $objOrm->Ejecutar("login",array("test@gmail.com",password_hash("1234",PASSWORD_DEFAULT)));
+			$password = crypt("1234",'$2a$07$usesomesillystringforsalt$');
+			$data = $objOrm->Ejecutar("login",array("test@gmail.com", $password));
+
+			
+
+			//var_dump($data);
+			//Devolvemos el resultado en formato json
+			echo json_encode($data);
+			/**
+			 * Si tenemos la salida: array(0) { } No esta ingresando, que el password enviado no puede ser igual 
+			 * al interno de la bd, por que esta encriptado y debe encriptarse antes
+			 */
+
 		}else{
 			echo "Esta mal";
 		}

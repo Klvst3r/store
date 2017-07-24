@@ -65,11 +65,11 @@ function csrf_token(){
  * Validar csrf token, por medio de sessiones
  */
 function val_csrf(){
-	if($_REQUEST["_token"] == $_SESSION["csrf_token"]){
-		return true;
-	}else{
-		return false;
-	}
+    if($_REQUEST["_token"] == $_SESSION["csrf_token"]){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 /**
