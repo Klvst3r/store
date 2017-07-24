@@ -25,6 +25,12 @@ class AuthController {
 			//Se devuelve tambien el pass
 			//echo "<br/>";
 			//echo input("password");	
+			
+
+			//Agregamos una variable para el input
+			$email = input("email");
+			//$data = $objOrm->Ejecutar("login",array("test@gmail.com",password_hash("1234",PASSWORD_DEFAULT)));
+			$password = crypt(input("password"),'$2a$07$usesomesillystringforsalt$');
 
 			/**
 			 * Por medio del modelo haremos la ejecución de procedmiento de login
@@ -33,11 +39,11 @@ class AuthController {
 			 */
 			$objOrm = new EtORM();
 
+			
 			//Ejecutamos el procedimiento dandole una variable
 			//Devolvemos todo lo que retorne la ejecución a un array $data.
-			//$data = $objOrm->Ejecutar("login",array("test@gmail.com",password_hash("1234",PASSWORD_DEFAULT)));
-			$password = crypt("1234",'$2a$07$usesomesillystringforsalt$');
-			$data = $objOrm->Ejecutar("login",array("test@gmail.com", $password));
+			
+			$data = $objOrm->Ejecutar("login",array($email, $password));
 
 			
 
