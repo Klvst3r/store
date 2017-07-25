@@ -70,6 +70,7 @@ function val_csrf(){
     }else{
         return false;
     }
+    
 }
 
 /**
@@ -100,6 +101,6 @@ function json_response($data){
 /**
  * Funcion que permite encriptar un string
  */
-function hash($string){
+function encriptar($string){
 	return crypt($string,'$2a$07$usesomesillystringforsalt$');
 }
