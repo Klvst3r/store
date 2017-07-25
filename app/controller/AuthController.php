@@ -29,8 +29,13 @@ class AuthController {
 
 			//Agregamos una variable para el input
 			$email = input("email");
+			//Invocamos a la funcion de hasheo
+			$password = hash(input("password"));
+			
+			
+
 			//$data = $objOrm->Ejecutar("login",array("test@gmail.com",password_hash("1234",PASSWORD_DEFAULT)));
-			$password = crypt(input("password"),'$2a$07$usesomesillystringforsalt$');
+			//$password = crypt(,'$2a$07$usesomesillystringforsalt$');
 
 			/**
 			 * Por medio del modelo haremos la ejecución de procedmiento de login
@@ -57,16 +62,18 @@ class AuthController {
 			//echo json_encode($data);
 			//Condicional para el count del data
 			if(count($data) > 0){
-				echo "Ingresaste";
+				//echo "Ingresaste";
 				// Si ingreso se hara por AJAX
 				// Se crean variables de sesion para almacenar todo lo que el usuario, y el username a utilizar posteriormente
 				// Por medio de la sesion se validan las siguientes pagonas, en caso contrario se botaran.
+				redireccionar("/admin");
 				
 			}else{
 				//echo "No puede ingresar al sistema";
 				//Redirigimos hacia atra
 				//header("location: login");
 				redireccionar("/login");
+				//Redirecciona al acceso al dashboard
 			}
 
 		}else{

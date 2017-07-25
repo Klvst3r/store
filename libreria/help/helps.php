@@ -80,3 +80,26 @@ function input($name){
     $re = new \Library\help\Request();
     return $re->input($name);
 }
+
+/**
+ * Funcion que nos permite retornar json a partir de un array
+ */
+function json_response($data){
+	header('Content-Type: application/json');
+	if(is_array($data)){
+		$array = array();
+		foreach($data as $d){
+			array_push($array,$d->getColumnas());
+		}
+		return json_encode($array);
+	}else{
+		return json_encode($data->getColumnas());
+	}
+}
+
+/**
+ * Funcion que permite encriptar un string
+ */
+function hash($string){
+	return crypt($string,'$2a$07$usesomesillystringforsalt$');
+}
