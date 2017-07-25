@@ -58,8 +58,15 @@ class AuthController {
 			//Condicional para el count del data
 			if(count($data) > 0){
 				echo "Ingresaste";
+				// Si ingreso se hara por AJAX
+				// Se crean variables de sesion para almacenar todo lo que el usuario, y el username a utilizar posteriormente
+				// Por medio de la sesion se validan las siguientes pagonas, en caso contrario se botaran.
+				
 			}else{
-				echo "No puede ingresar al sistema";
+				//echo "No puede ingresar al sistema";
+				//Redirigimos hacia atra
+				//header("location: login");
+				redireccionar("/login");
 			}
 
 		}else{

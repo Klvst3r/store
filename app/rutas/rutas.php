@@ -21,4 +21,5 @@ $ruta->controladores(array(
 	"/usuario"=>"UsuarioController",
 	"/ventas"=>"VentaController",
 	"/producto"=>"ProductoController",
+	"/admin"=>"AdminController",
 	));
