@@ -9,10 +9,16 @@
 
 <?php
 //session_start();
-
-echo "Usuario: " . $_SESSION["usuario"] . "<br/>";
-echo "E-mail: " . $_SESSION["email"] . "<br/>";
-echo "Privilegio: " . $_SESSION["privilegio"] . "<br/>";
+session_destroy();
+session_unset();
+//Validación
+if(isset($_SESSION["usuario"])){
+	echo "Usuario: " . $_SESSION["usuario"] . "<br/>";
+	echo "E-mail: " . $_SESSION["email"] . "<br/>";
+	echo "Privilegio: " . $_SESSION["privilegio"] . "<br/>";
+}else{
+	redireccionar("/login"); 
+}
 
 ?>
 </body>
