@@ -39,6 +39,9 @@ require_once("ORM/Modelo.php");
 //Incluir liberia class.inputfilter.php
 require_once("help/class.inputfilter.php");
 
+//Librerias
+require_once("vendor/Redirecciona.php");
+require_once("vendor/Session.php");
 
 //Ejecución de los modelos
 includeModels();

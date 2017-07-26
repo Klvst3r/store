@@ -70,7 +70,7 @@ function val_csrf(){
     }else{
         return false;
     }
-    
+
 }
 
 /**
@@ -103,4 +103,12 @@ function json_response($data){
  */
 function encriptar($string){
 	return crypt($string,'$2a$07$usesomesillystringforsalt$');
+}
+
+/**
+ * Redireccionar
+ */
+function redirecciona(){
+	//Retorna una nueva instancia de la clase Redirecciona, con esto podemos recuperar tambien sus metodos de esta clase.
+	return new Redirecciona();
 }

@@ -7,7 +7,17 @@ use libreria\ORM\EtORM;
 
 class AuthController {
 	public function index(){
-		return Vista::crear("auth.login");
+		//return Vista::crear("auth.login");
+		//Podriamos hacer uso del metodo directamente que se ha creado en helps.
+		//Prueba de envio de un mensaje de error
+		return redirecciona()->to("/login/error")->withMessage("mensaje","Hola mundo");
+	}
+
+	//Funcion de error
+	public function error(){
+
+		//echo "ok";
+		echo $_SESSION["mensaje"];
 	}
 
 	public function ingresar(){
@@ -43,7 +53,7 @@ class AuthController {
 			 * para el testeo del login urL: http://localhost/dev/store/login/ingresar
 			 */
 			$objOrm = new EtORM();
-
+ 
 			
 			//Ejecutamos el procedimiento dandole una variable
 			//Devolvemos todo lo que retorne la ejecución a un array $data.
