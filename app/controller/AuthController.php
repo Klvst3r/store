@@ -10,12 +10,18 @@ class AuthController {
 		//return Vista::crear("auth.login");
 		//Podriamos hacer uso del metodo directamente que se ha creado en helps.
 		//Prueba de envio de un mensaje de error
-		return redirecciona()->to("/login/error")->withMessage("mensaje","Hola mundo");
+		//return redirecciona()->to("/login/error")->withMessage("mensaje","Hola mundo");
+		//Mensaje con un arreglo de mensajes, y va creando una sesion que pasa oir ahi
+		return redirecciona()->to("/login/error")->withMessage(array(
+				"estado"=>"true",
+				"mensaje"=>"Ok Ingresaste"
+			));
 	}
 
 	//Funcion de error
 	public function error(){
-
+		//Si tenemos un arreglo de mensajes de error
+		echo $_SESSION["estado"]."<br/>";
 		//echo "ok";
 		echo $_SESSION["mensaje"];
 	}
