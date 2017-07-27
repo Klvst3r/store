@@ -21,9 +21,19 @@ class AuthController {
 	//Funcion de error
 	public function error(){
 		//Si tenemos un arreglo de mensajes de error
-		echo $_SESSION["estado"]."<br/>";
+		//echo $_SESSION["estado"]."<br/>";
 		//echo "ok";
-		echo $_SESSION["mensaje"];
+		//echo $_SESSION["mensaje"];
+		/**
+		 * Ya con Session en el core utilizamos simplemente las funciones
+		 */
+		//Si ponemos :: encontremos sus metodos estaticos o funciones estaticos para hacer el llamado directamente 
+		//Pide la varieble de sesion, si la sesion tiene un estado 
+		//Se hace una recuperación y eliminación de esa variable de session
+		if(Session::has("mensaje")){
+			//AL recargar el error se elimina y ya no entra a la condicional
+			echo Session::get("mensaje"); //Es lo mismo que $_SESSION["estado"];
+		}
 	}
 
 	public function ingresar(){

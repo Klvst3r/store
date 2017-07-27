@@ -51,6 +51,7 @@ Procesos:
 25. Complementando Login	
 	Libreria de validación url: https://github.com/colosa/processmaker/blob/master/gulliver/system/class.inputfilter.php 
 26. Sesiones y accesos con el Login 
-
+27. Implementando clase Redirecciona
+28. Implementando clase Session
 	
 

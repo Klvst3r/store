@@ -10,7 +10,7 @@
 <?php
 //session_start();
 session_destroy();
-session_unset();
+ session_unset();
 //Validación
 if(isset($_SESSION["usuario"])){
 	echo "Usuario: " . $_SESSION["usuario"] . "<br/>";
