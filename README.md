@@ -54,4 +54,5 @@ Procesos:
 27. Implementando clase Redirecciona
 28. Implementando clase Session
 29. Mostrando mensaje al Redireccionar	
-
+30. Instalación y configuración del sistema
+31. Instalar el panel de administración

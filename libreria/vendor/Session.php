@@ -29,7 +29,7 @@ class Session {
 			$mensaje = $_SESSION[$variable_session];
 			//vacie o se elimine de la memoria y la variable
 			session_unset($_SESSION[$variable_session]);
-			//retorna el mensaje
+			//retorna el mensaje"
 			return $mensaje;
 		}catch(Exception $ex){}
 	}

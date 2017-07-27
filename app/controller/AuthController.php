@@ -99,15 +99,28 @@ class AuthController {
 				//Sacamos el nombe de usuarios, email y privilegio
 				//echo json_encode($data);
 				//echo $data[0]["email"];
-				$_SESSION["usuario"] = $data[0]["usuario"];
+				/*$_SESSION["usuario"] = $data[0]["usuario"];
 				$_SESSION["email"] = $data[0]["email"];
 				$_SESSION["privilegio"] = $data[0]["privilegio"];
-
+*/
 
 				// Si ingreso se hara por AJAX
 				// Se crean variables de sesion para almacenar todo lo que el usuario, y el username a utilizar posteriormente
 				// Por medio de la sesion se validan las siguientes pagonas, en caso contrario se botaran.
-				redireccionar("/admin");
+				//redireccionar("/admin");
+				
+				/**
+				 * Codigo con instancias hacia usuario
+				 */
+				$usuario = new User();
+				$usuario->id = $data[0]["id"];
+				$usuario->usuario = $data[0]["usuario"];
+				$usuario->email = $data[0]["email"];
+				$usuario->privilegio = $data[0]["privilegio"];
+
+				$_SESSION["usuario"] = $usuario;
+
+				redirecciona()->to("/admin");
 				
 			}else{
 				//echo "No puede ingresar al sistema";
