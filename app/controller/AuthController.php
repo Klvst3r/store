@@ -17,6 +17,11 @@ class AuthController {
 				"estado"=>"true",
 				"mensaje"=>"Ok Ingresaste"
 			));*/
+	/**
+	 * Hacemos uso de la funcion Redireccionar
+	 */
+	return Vista::crear("auth.login");
+	
 	}
 
 	//Funcion de error demo
@@ -108,8 +113,14 @@ class AuthController {
 				//echo "No puede ingresar al sistema";
 				//Redirigimos hacia atra
 				//header("location: login");
-				redireccionar("/login");
+				//redireccionar("/login");
 				//Redirecciona al acceso al dashboard
+				//Cuando redireccione al login, en el login crea en index la vista en:
+				//view/auth/login.php
+				redirecciona()->to("/login")->withMessage(array(
+					"estado"=>"false",
+					"mensaje"=>"Usuario/Password incorrectos"
+				));
 			}
 
 		}else{
