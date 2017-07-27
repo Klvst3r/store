@@ -53,5 +53,5 @@ Procesos:
 26. Sesiones y accesos con el Login 
 27. Implementando clase Redirecciona
 28. Implementando clase Session
-	
+29. Mostrando mensaje al Redireccionar	
 

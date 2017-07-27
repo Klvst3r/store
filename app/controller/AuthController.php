@@ -12,14 +12,15 @@ class AuthController {
 		//Prueba de envio de un mensaje de error
 		//return redirecciona()->to("/login/error")->withMessage("mensaje","Hola mundo");
 		//Mensaje con un arreglo de mensajes, y va creando una sesion que pasa oir ahi
-		return redirecciona()->to("/login/error")->withMessage(array(
+		//Demo de error junto con la funcion demo error() de la parte de abajo
+		/*return redirecciona()->to("/login/error")->withMessage(array(
 				"estado"=>"true",
 				"mensaje"=>"Ok Ingresaste"
-			));
+			));*/
 	}
 
-	//Funcion de error
-	public function error(){
+	//Funcion de error demo
+	//public function error(){
 		//Si tenemos un arreglo de mensajes de error
 		//echo $_SESSION["estado"]."<br/>";
 		//echo "ok";
@@ -30,11 +31,11 @@ class AuthController {
 		//Si ponemos :: encontremos sus metodos estaticos o funciones estaticos para hacer el llamado directamente 
 		//Pide la varieble de sesion, si la sesion tiene un estado 
 		//Se hace una recuperación y eliminación de esa variable de session
-		if(Session::has("mensaje")){
+	//	if(Session::has("mensaje")){
 			//AL recargar el error se elimina y ya no entra a la condicional
-			echo Session::get("mensaje"); //Es lo mismo que $_SESSION["estado"];
-		}
-	}
+	//		echo Session::get("mensaje"); //Es lo mismo que $_SESSION["estado"];
+	//	}
+	//}
 
 	public function ingresar(){
 		//validar el csfr token. Es algo que nos permite validar la peticiones que se hacen a nuestros diferentes tipod php 
