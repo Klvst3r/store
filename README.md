@@ -57,3 +57,4 @@ Procesos:
 30. Instalación y configuración del sistema
 31. Instalar el panel de administración
 	Inicio url: http://localhost/dev/store/assets/temporal-web-page/pages/panels-wells.html
+32. Personalizando Panel de Administración
