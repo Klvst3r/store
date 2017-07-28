@@ -56,3 +56,4 @@ Procesos:
 29. Mostrando mensaje al Redireccionar	
 30. Instalación y configuración del sistema
 31. Instalar el panel de administración
+	Inicio url: http://localhost/dev/store/assets/temporal-web-page/pages/panels-wells.html
