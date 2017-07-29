@@ -20,10 +20,10 @@ class UsuarioController {
          * Para Ejecutar la inserción de un usuario en la tabla usuarios lo hacemos invocando al metodo usuario
          * Para ello la url es simplemente:  http://localhost/dev/store/usuario y en la Bd eliminamos el registro existente
          */
+        //Demo 1
+        //$user = new User();
 
-        $user = new User();
-
-        echo json_encode($user->all());
+        //echo json_encode($user->all());
         //Automaticamente hacemos un set()
         //$user->email = "test@gmail.com";
         //$user->usuario = "test";
@@ -79,7 +79,13 @@ class UsuarioController {
 			//como lo recupero en pantalla es como se llamara la variable
             "usuar"=>$us,
         ));*/
-
+        
+        $usuarios = User::all();
+            
+        //regresamos la vista de listado de usuarios
+        return Vista::crear("admin.usuario.listado", array(
+                "usuarios"=>$usuarios,
+            ));
         
 	}
 
