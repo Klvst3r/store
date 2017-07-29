@@ -59,3 +59,4 @@ Procesos:
 	Inicio url: http://localhost/dev/store/assets/temporal-web-page/pages/panels-wells.html
 32. Personalizando Panel de Administración
 33. Listado de Usuarios en el panel de administración
+34. Registrar Usuarios

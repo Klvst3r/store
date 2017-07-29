@@ -89,6 +89,10 @@ class UsuarioController {
         
 	}
 
+    public function nuevo(){
+        return Vista::crear("admin.usuario.crear");
+    }
+
 	public function insertar(){
 		/*echo "Insertado Correctamente";*/
 	}
