@@ -20,9 +20,11 @@ class Ruta{
 		 * La clase (Ruta) se llama cada vez que se recarga o abra una página en la aplicación
 		 *  self hace referencia a esta clase dinamica, que se enviara en cada recarga o enter a la URL
 		 */
+		//Lamada al metodo que hace el proceso de rutas
 		self::submit();
 	}
 
+	//función o método que se ejecuta cada vez que se envia la petición en la url
 	public function submit(){
 		//echo "Hola Submit";
 		// Procesamos la URL que ejecutara sobre la dirección superior
@@ -36,7 +38,7 @@ class Ruta{
 		$uri = isset($_GET["uri"])?$_GET["uri"]:"/"; //recupera la url del proyecto
 		//echo $uri;
 		//Dividir en un array de paths
-		$paths = explode("/",$uri);
+		$paths = explode("/",$uri);//divide la url en partes y forma un array
 		//print_r($paths);
 		//Identificar con una condicional para divir la url en partes y forma un array, 
 		//para saber si esta en un controlador o en ruta principal
@@ -63,6 +65,8 @@ class Ruta{
 		    	 $this->getController("index",$controlador); //Llamamos al metodo que nos recupera el controlador
 		    }
 		}else{
+
+			/*--------------------------------------- Else Anterior --------------------------------------*/
 			//Controladores y metodos
 			//echo "Controlador";
 			//Comprobar el estado de ruta iniciando en falso
@@ -72,7 +76,7 @@ class Ruta{
 			 * "/usuarios"=>"UsuarioController"
 			 *     $ruta            $count 
 			 */
-			$estado= false;
+			/*$estado= false;
 			foreach($this->_controladores as $ruta => $cont){
 				# ($paths) el array de rutas que ponemos en el explorador
 				# estudiantes/asdasd
@@ -97,7 +101,54 @@ class Ruta{
 			if($estado == false){
                 die("error en la ruta");
             }
-			
+			*/
+			/*--------------------------------------- Else Anterior --------------------------------------*/
+			/*---------------------------------------- Else Proyecto -------------------------------------*/
+			//controladores y metodos
+            //echo "<b>Url:</b> ".$uri."<br><hr>";
+            $estado= false;
+            foreach($this->_controladores as $ruta => $cont){
+                //echo "<br><b>Ruta:</b> ".$ruta."<br>";
+
+                if(trim($ruta,"/") != ""){
+                    $pos = strpos($uri, trim($ruta,"/"));
+
+                    if($pos === false){
+                        //echo "<small style='color:red;'>no se encontro</small><br>";
+                    }else{
+                        //echo "<small style='color:green;'>se econtro </small><br>";
+                        $arrayParams = array(); //array donde se guardaran los parametros de la web
+                        $estado = true; // estado de ruta
+                        $controlador = $cont;
+                        $metodo = "";
+                        $cantidadRuta = count(explode("/",trim($ruta,"/")));
+                        $cantidad = count($paths);
+                        if($cantidad > $cantidadRuta){
+                            $metodo = $paths[$cantidadRuta];
+
+                            for ($i=0; $i < count($paths) ; $i++) {
+                                if($i > $cantidadRuta){
+                                    $arrayParams[] = $paths[$i];
+                                }
+                            }
+                        }
+                        //echo "<b>Parametros: </b>".json_encode($arrayParams);
+                        //echo "<br><b>cantidad Rutas</b>: ".count(explode("/",trim($ruta,"/")))."<br>";
+                        //echo "<br><b>cantidad Uris</b>: ".count($paths)."<br>";
+                        /*if(count($paths) > 1){
+                            $metodo = $paths[1];
+                        }*/
+                        $this->getController($metodo,$controlador,$arrayParams);
+
+                    }
+                }
+                //echo "<hr>";
+            }
+
+            if($estado == false){
+                die("error en la ruta");
+            }
+			/*---------------------------------------- Else Proyecto -------------------------------------*/
 		}//if
 		
 	} //function submit

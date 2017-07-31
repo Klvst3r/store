@@ -31,6 +31,7 @@
                             <th>#</th>
                             <th>Nombre</th>
                             <th>Email</th>
+                            <th>Acción</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,6 +40,9 @@
                                 <td><?php echo $usuario->id; ?></td>
                                 <td><?php echo $usuario->usuario; ?></td>
                                 <td><?php echo $usuario->email; ?></td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" href="<?php usrl('usuario/editar/'. $usuario->id); ?>">Editar</a>
+                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>
