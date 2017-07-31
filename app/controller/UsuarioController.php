@@ -115,21 +115,30 @@ class UsuarioController {
         //$user->privilegio = "admin";
        
 
+
         try {
-            
+
             $user = new User();
-            $user->email = input("email");
+            //Si existe el id de usuario se crea el objeto y si existe el input id, el objeto se convierte en este caso
+            //o buscara en la bd y tomara la fomra para que el usuario sea actualizado, como en la busqueda el id se queda completo del
+            //usuario entonces podremos actualizarlo correctamente y no se creara un nuevo usuario.
+            if (input('usuario_id')) {
+                $user = User::find(input('usuario_id'));
+            }
+
+            $user->email   = input("email");
             $user->usuario = input("usuario");
-            $user->pass = crypt(input("password"), '$2a$07$usesomesillystringforsalt$');
+             // Se valida el password solo se actualiza en cualquier momento mientras  aue el usuario haya enviado un password
+            // Si el usuario no escribe nada el password no debe guardarse vacio, simplemente si no ha enviado no der¿beria guardarse
+            if (input("password")) {
+                $user->pass = crypt(input("password"), '$2a$07$usesomesillystringforsalt$');
+            }
             $user->privilegio = input("privilegio");
             $user->guardar();
 
             redirecciona()->to("usuario");
-
         } catch (Exception $e) {
-            //Si no guarda
             echo $e->getMessage();
-            
         }
 
     } //Metodo Agregar
