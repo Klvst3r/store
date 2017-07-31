@@ -98,20 +98,39 @@ class UsuarioController {
 	}
 
     public function agregar(){
-        $user = new User();
+        //$user = new User();
 
         //echo json_encode($user->all());
         //Automaticamente hacemos un set()
-        $user->email = "test@gmail.com";
-        $user->usuario = "test";
+        
+        //$user->email = "test@gmail.com";
+        //$user->usuario = "test";
+        
         
         //Encriptamos el password y se manda encriptado a la BD
         //$user->pass = password_hash("1234",PASSWORD_DEFAULT);
         //Recurrimo al metodo de encriptacion siguiente
-        $user->pass=crypt("1234",'$2a$07$usesomesillystringforsalt$');
-        $user->privilegio = "admin";
+        //$user->pass=crypt("1234",'$2a$07$usesomesillystringforsalt$');
+        
+        //$user->privilegio = "admin";
+       
 
-        $user->guardar();
+        try {
+            
+            $user = new User();
+            $user->email = input("email");
+            $user->usuario = input("usuario");
+            $user->pass = crypt(input("password"), '$2a$07$usesomesillystringforsalt$');
+            $user->privilegio = input("privilegio");
+            $user->guardar();
+
+            redirecciona()->to("usuario");
+
+        } catch (Exception $e) {
+            //Si no guarda
+            echo $e->getMessage();
+            
+        }
 
     }
 }
