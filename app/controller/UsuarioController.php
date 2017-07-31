@@ -132,5 +132,34 @@ class UsuarioController {
             
         }
 
+    } //Metodo Agregar
+
+
+    
+    /**
+     * Funcion o metodo que sera vinculada a la ruta que se esta enviando "editar" desde el boton editar del listado de usuario
+     * con un parametro que es el id, los parametros estaran separados por barras, los parametros se captura en la función
+     * Mátodo para editar usuario
+     * 
+     * @param  int $id id del usuario
+     * @return redirect
+     */
+
+    public function editar($id)
+    {
+        //echo $id;
+        //Realizamos un listado de valores de acuerdo al identificador del parametro de la fncion editar    
+        $usuario = User::find($id);
+        //Volcamos los datos a pantalla
+        //var_dump($usuario);
+        //Retornamos el usuario
+        if (count($usuario)) {
+            return Vista::crear('admin.usuario.crear', array("usuario" => $usuario));
+        }
+        return redirecciona()->to('usuario');
     }
+
+
+
+
 }
