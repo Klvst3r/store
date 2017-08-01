@@ -61,3 +61,4 @@ Procesos:
 33. Listado de Usuarios en el panel de administración
 34. Registrar Usuarios
 35. Actualizar Usuarios
+36. Eliminar un Usuario

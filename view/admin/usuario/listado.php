@@ -33,7 +33,8 @@
                         <td><?php echo $usuario->email ?></td>
                         <td>
                             <a class="btn btn-primary btn-sm" href="<?php url('usuario/editar/' . $usuario->id)?>">Editar</a>
-                            <button class="btn btn-danger btn-sm" onclick="confirmar('<?php url('usuario/eliminar/' . $usuario->id)?>')">Eliminar</button>
+                            <!-- <button class="btn btn-danger btn-sm" onclick="confirmar('<?php //url('usuario/eliminar/' . $usuario->id)?>')">Eliminar</button> -->
+                            <a class="btn btn-danger btn-sm" href="<?php url('usuario/eliminar/' . $usuario->id)?>">Eliminar</a>
                         </td>
                     </tr>
                     <?php }?>
