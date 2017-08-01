@@ -169,6 +169,15 @@ class UsuarioController {
     }
 
 
+    public function eliminar($id){
+        $usuario = User::find($id);
+        if (count($usuario)) {
+            $usuario->eliminar();
+            return redirecciona()->to('usuario');
+        }
+        return redirecciona()->to('usuario');
+
+    }
 
 
 }
