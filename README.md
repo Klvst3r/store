@@ -62,3 +62,4 @@ Procesos:
 34. Registrar Usuarios
 35. Actualizar Usuarios
 36. Eliminar un Usuario
+	Uso de Plugin url: https://craftpip.github.io/jquery-confirm/
