@@ -20,8 +20,12 @@ use libreria\ORM\Modelo;
 
 	public function getPrecio(){
 		return $this->precio;
-	}//function getPrecio*/
-
-
-
+	}//function getPrecio
 } //Class
+
+*/
+
+
+class Producto extends Modelo {
+	protected static $table = "productos";
+}
