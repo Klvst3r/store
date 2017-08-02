@@ -31,7 +31,9 @@
                     <tr>
                         <td><?php echo $producto->id ?></td>
                         <td><?php echo $producto->nombre ?></td>
-                        <td><?php echo $producto->precio ?></td>
+                        <td><?php echo '$ '.number_format($producto->precio, 2);
+                            /* php echo money_format('%i', $producto->precio);*/
+                          ?></td>
                         <td>
                             <a class="btn btn-primary btn-sm" href="<?php url('producto/editar/' . $producto->id)?>">Editar</a>
                             <!-- <button class="btn btn-danger btn-sm" onclick="confirmar('<?php //url('usuario/eliminar/' . $usuario->id)?>')">Eliminar</button> -->
