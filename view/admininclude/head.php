@@ -13,4 +13,6 @@
 
 	<link href="<?php asset('/dist/css/sb-admin-2.css'); ?>" rel="stylesheet">
 
+	<link href="<?php asset('/css/jquery-confirm.min.css'); ?>" rel="stylesheet">
+
 	<link href="<?php asset('/vendor/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css">
