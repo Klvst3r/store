@@ -1,10 +1,14 @@
-<?php  
+<?php namespace App\model;
+
+//Usamos una clase la libreria ORM, se importa directamente
+use libreria\ORM\Modelo;
+
 
 /**
- * Modelo de la tabla Productos
+ * Modelo de la tabla Productos Demo inicial
  */
 
-class Producto {
+/*class Producto {
 	private $id;
 	private $nombre;
 	private $precio;
@@ -16,5 +20,8 @@ class Producto {
 
 	public function getPrecio(){
 		return $this->precio;
-	}//function getPrecio
+	}//function getPrecio*/
+
+
+
 } //Class

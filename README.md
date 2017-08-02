@@ -54,7 +54,7 @@ Procesos:
 27. Implementando clase Redirecciona
 28. Implementando clase Session
 29. Mostrando mensaje al Redireccionar	
-30. Instalación y configuración del sistema
+30. Instalación y configuración del sistemas
 31. Instalar el panel de administración
 	Inicio url: http://localhost/dev/store/assets/temporal-web-page/pages/panels-wells.html
 32. Personalizando Panel de Administración
@@ -63,3 +63,4 @@ Procesos:
 35. Actualizar Usuarios
 36. Eliminar un Usuario
 	Uso de Plugin url: https://craftpip.github.io/jquery-confirm/
+37. Listar Productos
