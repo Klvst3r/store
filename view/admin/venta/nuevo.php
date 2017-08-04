@@ -38,16 +38,18 @@
                             <?php } ?>
 
                             <div class="form-group">
-                              <label for="venta">Nombre</label>
-                              <input value="<?php echo isset($venta) ? $venta->nombre : '' ?>"
-                              type="text" name="nombre" class="form-control" id="venta" placeholder="Nombre de la venta" required autofocus />
+                              <label for="venta">Nombre del Cliente</label>
+                              <input value="<?php echo isset($venta) ? $venta->cliente : '' ?>"
+                              type="text" name="nombre" class="form-control" id="venta" placeholder="Nombre Apellido(s)" required autofocus />
                             </div>
                           
-                            <div class="form-group">
-                              <label for="precio">Precio</label>
-                              <input value="<?php echo isset($venta) ? $venta->precio : '' ?>"
-                              type="text" name="precio" class="form-control" id="precio" placeholder="0.00" required  />
-                            </div>
+                            <?php if(isset($venta)) { ?>
+                              <div class="form-group">
+                                <label for="precio">Precio</label>
+                                <input value="<?php echo isset($venta) ? $venta->precio : '' ?>"
+                                type="text" name="precio" class="form-control" id="precio" placeholder="0.00" required  />
+                              </div>
+                            <?php } ?>
 
 
                           <button type="submit" class="btn btn-primary">Guardar</button>
