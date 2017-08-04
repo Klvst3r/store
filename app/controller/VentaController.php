@@ -4,6 +4,9 @@
 use App\model\Venta;
 //Importamos el ORM par aVenta para usarlo directamenbte en registrar venta
 use \libreria\ORM\EtORM;
+//se importa la Vista
+use vista\Vista;
+
 
 class VentaController {
     //Usamos La Vista
