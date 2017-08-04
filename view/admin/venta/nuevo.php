@@ -16,8 +16,8 @@
         <div id="page-wrapper">
             <br/>
             <div class="row">
-                <div class="col-lg-12"><?php echo isset($producto) ? 'Actualizar' : 'Nuevo' ?> producto | 
-                    <a href="<?php url('producto'); ?>" class="btn btn-default">
+                <div class="col-lg-12"><?php echo isset($venta) ? 'Actualizar' : 'Nueva' ?> venta | 
+                    <a href="<?php url('venta'); ?>" class="btn btn-default">
                         <i class="fa fa-arrow-left"></i> Ver Listado</a>
                     </h1>
                 </div>
@@ -30,22 +30,22 @@
                 <div class="col-md-6">
                   <div class="panel panel-default">
                      <div class="panel-body">
-                        <form action="<?php url('producto/agregar'); ?>" method="POST" role="form">
-                            <legend>Datos del producto</legend>
+                        <form action="<?php url('venta/agregar'); ?>" method="POST" role="form">
+                            <legend>Datos de la venta</legend>
 
-                            <?php if(isset($producto)) { ?>
-                                  <input type="hidden" value="<?php echo $producto->id ?>" name="producto_id" />
+                            <?php if(isset($venta)) { ?>
+                                  <input type="hidden" value="<?php echo $venta->id ?>" name="venta_id" />
                             <?php } ?>
 
                             <div class="form-group">
-                              <label for="producto">Nombre</label>
-                              <input value="<?php echo isset($producto) ? $producto->nombre : '' ?>"
-                              type="text" name="nombre" class="form-control" id="producto" placeholder="Nombre del producto" required autofocus />
+                              <label for="venta">Nombre</label>
+                              <input value="<?php echo isset($venta) ? $venta->nombre : '' ?>"
+                              type="text" name="nombre" class="form-control" id="venta" placeholder="Nombre de la venta" required autofocus />
                             </div>
                           
                             <div class="form-group">
                               <label for="precio">Precio</label>
-                              <input value="<?php echo isset($producto) ? $producto->precio : '' ?>"
+                              <input value="<?php echo isset($venta) ? $venta->precio : '' ?>"
                               type="text" name="precio" class="form-control" id="precio" placeholder="0.00" required  />
                             </div>
 
