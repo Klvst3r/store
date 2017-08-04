@@ -52,6 +52,17 @@ class ProductoController {
 
     } //Metodo Agregar
 
+    //Metodo para eliminar Producto
+    public function eliminar($id){
+        $producto = Producto::find($id);
+        if (count($producto)) {
+            $producto->eliminar();
+            return redirecciona()->to('producto');
+        }
+        return redirecciona()->to('producto');
+
+    }
+
 	
 
 }
