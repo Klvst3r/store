@@ -69,4 +69,7 @@ Procesos:
 	b) Crear metodo en el controlador del producto
 	c) Se crea la vista de nuevo producto
 		- de admin.usuario.crear -> nuevo-producto (Formulario)
+		- Se agregan los metodos en el controlador de productos (nuevo, editar, guardar, eliminar)
+		- Se modifica la vista o el formulario de la vista (nuevo)
+	d) Test Modelo-Vista-Controlador
 
