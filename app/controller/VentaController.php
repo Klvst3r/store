@@ -28,6 +28,11 @@ class VentaController {
 
 	} //Funcion Index
 
+	//Metodo para nueva venta
+	public function nuevo(){
+		return Vista::crear('admin.venta.nuevo');
+	}
+
 	public function buscar(){
 		//Buscar una venta por cliente que es la columna con el valor Klvstr y lo alamacenamos en una variable
 		//ej con url: http://localhost/dev/store/ventas/buscar?cliente=Klvst3r
