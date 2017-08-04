@@ -62,7 +62,7 @@ class ProductoController {
         //var_dump($producto);
         //Retornamos el producto
         if (count($producto)) {
-            return Vista::crear('admin.producto.crear', array("producto" => $producto));
+            return Vista::crear('admin.producto.nuevo', array("producto" => $producto));
         }
         return redirecciona()->to('producto');
     }
