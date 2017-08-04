@@ -10,16 +10,19 @@ class VentaController {
 	public function index(){
 		//echo "Estamos en el index de ventas";
 		//Instancia de Venta, para hacer una inserción de venta
-		$venta = new Venta();
+		//$venta = new Venta();
 		//Se debe coincidir la estructura de la tabla, el id no se envia
-		$venta->cliente = "Klvst3r";
-		$venta->fecha = date("Y-m-d");
+		//$venta->cliente = "Klvst3r";
+		//$venta->fecha = date("Y-m-d");
 
 
 		//Funcion del ORM para insertar los datos directamente
-		$venta->guardar();
+		//$venta->guardar();
 		//recuperamos el ultimo id que se inserto
 		//echo $venta->id;
+		
+		return Vista::crear('admin.venta.index'); 
+
 	} //Funcion Index
 
 	public function buscar(){
