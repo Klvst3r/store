@@ -52,6 +52,21 @@ class ProductoController {
 
     } //Metodo Agregar
 
+    //Editar Producto
+    public function editar($id)
+    {
+        //echo $id;
+        //Realizamos un listado de valores de acuerdo al identificador del parametro de la fncion editar    
+        $producto = Producto::find($id);
+        //Volcamos los datos a pantalla
+        //var_dump($producto);
+        //Retornamos el producto
+        if (count($producto)) {
+            return Vista::crear('admin.producto.crear', array("producto" => $producto));
+        }
+        return redirecciona()->to('producto');
+    }
+
     //Metodo para eliminar Producto
     public function eliminar($id){
         $producto = Producto::find($id);
