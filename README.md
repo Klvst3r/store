@@ -64,3 +64,9 @@ Procesos:
 36. Eliminar un Usuario
 	Uso de Plugin url: https://craftpip.github.io/jquery-confirm/
 37. Listar Productos
+38. Mantenimiento completo de productos
+	a) Crear boton nuevo
+	b) Crear metodo en el controlador del producto
+	c) Se crea la vista de nuevo producto
+		- de admin.usuario.crear -> nuevo-producto (Formulario)
+

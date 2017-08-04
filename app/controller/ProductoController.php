@@ -24,4 +24,34 @@ class ProductoController {
 				"productos"=>$productos,
 			));
 	}
+
+	//Metodo para nuevo producto
+	public function nuevo(){
+		return Vista::crear('admin.producto.nuevo');
+	}
+
+	//Guardar producto - Agregar
+	 public function agregar(){
+        try {
+
+            $producto = new Producto();
+
+            if (input('producto_id')) {
+                $producto = Producto::find(input('producto_id'));
+            }
+
+            $producto->nombre   = input("nombre");
+            $producto->precio = input("precio");
+
+            $producto->guardar();
+
+            redirecciona()->to("producto");
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
+    } //Metodo Agregar
+
+	
+
 }
