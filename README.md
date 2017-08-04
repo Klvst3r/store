@@ -72,4 +72,6 @@ Procesos:
 		- Se agregan los metodos en el controlador de productos (nuevo, editar, guardar, eliminar)
 		- Se modifica la vista o el formulario de la vista (nuevo)
 	d) Test Modelo-Vista-Controlador
+29.Registrar una venta
+
 

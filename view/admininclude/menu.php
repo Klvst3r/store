@@ -47,7 +47,7 @@
                         <!-- /input-group -->
                     </li>
                     <li>
-                        <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Principal</a>
+                        <a href="<?php url('admin') ?>"><i class="fa fa-dashboard fa-fw"></i> Principal</a>
                     </li>
                     <li>
                        
@@ -56,7 +56,7 @@
                         <a href="<?php url('producto') ?>"><i class="fa fa-table fa-fw"></i> Productos</a>
                     </li>
                     <li>
-                        <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Ventas</a>
+                        <a href="<?php url('venta') ?>"><i class="fa fa-edit fa-fw"></i> Ventas</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Administración<span class="fa arrow"></span></a>
