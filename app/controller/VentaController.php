@@ -39,7 +39,13 @@ class VentaController {
 		$venta->cliente = input('nombre');
 		$venta->fecha 	= date('Y-m-d');
 
-		$venta->guardar();
+		//$venta->guardar();
+		//Si guarda redirecciona
+		if($venta->guardar()){
+			return redirecciona()->to('venta');
+		}
+
+		return redirecciona()->to('venta;');
 
 	}
 
