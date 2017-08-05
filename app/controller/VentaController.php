@@ -33,6 +33,16 @@ class VentaController {
 		return Vista::crear('admin.venta.nuevo');
 	}
 
+	public function agregar(){
+		$venta 			= new Venta();
+
+		$venta->cliente = input('nombre');
+		$venta->fecha 	= date('Y-m-d');
+
+		$venta->guardar();
+
+	}
+
 	public function buscar(){
 		//Buscar una venta por cliente que es la columna con el valor Klvstr y lo alamacenamos en una variable
 		//ej con url: http://localhost/dev/store/ventas/buscar?cliente=Klvst3r
