@@ -15,6 +15,7 @@
 
  <!-- Angular JS -->
  <script src="<?php asset('js/angular.min.js'); ?>"></script>
+ <script src="<?php asset('js/controladores/VentaController.js'); ?>"></script>
 
 <script>
 
