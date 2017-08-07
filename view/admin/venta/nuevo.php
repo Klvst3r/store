@@ -61,7 +61,7 @@
         <div class="col-md-12">
           <div class="panel panel-default">
             <div class="panel-body">
-              <button type="button" class="btn btn-sm btn-primary">Agregar Producto</button>
+              <button data-toggle="modal" data-target="#listaProductos" type="button" class="btn btn-sm btn-primary">Agregar Producto</button>
               <hr/>
               <table class="table table-hover">
                 <thead>
