@@ -31,7 +31,7 @@
           <div class="col-md-6">
             <div class="panel panel-default">
              <div class="panel-body">
-              <legend>Datos de la venta</legend>
+              <legend>Datos del Cliente</legend>
 
               <?php if(isset($venta)) { ?>
               <input type="hidden" value="<?php echo $venta->id ?>" name="venta_id" />
@@ -42,7 +42,7 @@
                 <input value="<?php echo isset($venta) ? $venta->cliente : '' ?>"
                 type="text" name="nombre" class="form-control" id="venta" placeholder="Nombre Apellido(s)" required autofocus />
               </div>
-              
+
               <?php if(isset($venta)) { ?>
               <div class="form-group">
                 <label for="precio">Precio</label>
@@ -55,7 +55,28 @@
               <!-- <button type="submit" class="btn btn-primary">Guardar</button> -->
             </div>
           </div>
-
+      
+        </div>
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Subtotal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </form>  
     </div>
