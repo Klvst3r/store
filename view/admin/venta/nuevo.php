@@ -105,8 +105,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td></td>
+                <!-- Referencia al scope de Angular de Productos -->
+                <tr ng-repeat="producto in productos">
+                  <td>{{ producto.nombre }}</td>
+                  <td>{{ producto.precio }}</td>
+                    <td><button type="button" class="btn btn-sm btn-default">Agregar Producto</button></td>
                 </tr>
               </tbody>
             </table>
