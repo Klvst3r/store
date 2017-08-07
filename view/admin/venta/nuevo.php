@@ -99,7 +99,7 @@
            <input type="text" class="form-control" placeholder="Buscar" ng-model="buscarProducto" /> 
            <hr/>
 
-            <!-- Tabla de productos cargados dinamicamente con Angular -->
+            <!-- Tabla de productos cargados dinamicamente con Angular --> 
             <table class="table table-hover">
               <thead>
                 <tr>
@@ -110,7 +110,7 @@
               </thead>
               <tbody>
                 <!-- Referencia al scope de Angular de Productos -->
-                <tr ng-repeat="producto in productos">
+                <tr ng-repeat="producto in productos | filter:buscarProducto">
                   <td>{{ producto.nombre }}</td>
                   <td>{{ producto.precio }}</td>
                     <td><button type="button" class="btn btn-sm btn-default">Agregar Producto</button></td>
