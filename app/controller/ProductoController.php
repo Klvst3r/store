@@ -25,6 +25,14 @@ class ProductoController {
 			));
 	}
 
+    public function todos(){
+        //Obtenemos todos los productos
+        $productos =  Producto::all();
+
+        //Por medio de JSON, retornamos los productos 
+        echo json_response($productos);
+    }
+
 	//Metodo para nuevo producto
 	public function nuevo(){
 		return Vista::crear('admin.producto.nuevo');

@@ -9,7 +9,7 @@
 
 <body>
 
-  <div id="wrapper">
+  <div id="wrapper" ng-app="ventaApp" ng-controller="ventaController">
 
     <!-- Navigation -->
     <?php  include(VISTA_RUTA."admininclude/menu.php"); ?>
@@ -28,6 +28,7 @@
       <br/>
       <div class="row">
         <form action="<?php url('venta/agregar'); ?>" method="POST" role="form">
+          <input type="hidden" value="<?php url(''); ?>" id="urlPrincipal" />
           <div class="col-md-6">
             <div class="panel panel-default">
              <div class="panel-body">

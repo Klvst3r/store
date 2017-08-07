@@ -75,5 +75,4 @@ Procesos:
 39.Registrar una venta
 40. Generando estructura para agregar productos con AJAX
 	Angular JS url: https://angularjs.org
-
-
+41. Creando AJAX con AngularJS
