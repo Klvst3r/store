@@ -95,7 +95,21 @@
             <h4 class="modal-title" id="myModalLabel">Listado de Productos</h4>
           </div>
           <div class="modal-body"> 
-            ...
+            <!-- Se cargan los productos -->
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Precio</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
