@@ -74,5 +74,6 @@ Procesos:
 	d) Test Modelo-Vista-Controlador
 39.Registrar una venta
 40. Generando estructura para agregar productos con AJAX
+	Angular JS url: https://angularjs.org
 
 

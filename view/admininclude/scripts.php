@@ -13,6 +13,9 @@
  <!-- Custom Theme JavaScript -->
  <script src="<?php asset('/dist/js/sb-admin-2.js'); ?>"></script>
 
+ <!-- Angular JS -->
+ <script src="<?php asset('js/angular.min.js'); ?>"></script>
+
 <script>
 
 function confirmar(url){
