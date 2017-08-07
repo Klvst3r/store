@@ -61,7 +61,7 @@
         <div class="col-md-12">
           <div class="panel panel-default">
             <div class="panel-body">
-              <button data-toggle="modal" data-target="#listaProductos" type="button" class="btn btn-sm btn-primary">Agregar Producto</button>
+              <button ng-click="cargarProductos()" data-toggle="modal" data-target="#listaProductos" type="button" class="btn btn-sm btn-primary">Agregar Producto</button>
               <hr/>
               <table class="table table-hover">
                 <thead>
@@ -92,14 +92,13 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            <h4 class="modal-title" id="myModalLabel">Listado de Productos</h4>
           </div>
           <div class="modal-body"> 
             ...
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
           </div>
         </div>
       </div>
