@@ -112,7 +112,7 @@
                 <!-- Referencia al scope de Angular de Productos -->
                 <tr ng-repeat="producto in productos | filter:buscarProducto">
                   <td>{{ producto.nombre }}</td>
-                  <td>{{ producto.precio }}</td>
+                  <td>{{ producto.precio | currency:'$ ' }}</td>
                     <td><button type="button" class="btn btn-sm btn-default">Agregar Producto</button></td>
                 </tr>
               </tbody>
