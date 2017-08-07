@@ -76,3 +76,5 @@ Procesos:
 40. Generando estructura para agregar productos con AJAX
 	Angular JS url: https://angularjs.org
 41. Creando AJAX con AngularJS
+42. Mostrando modal con productos   AJAX   
+	JavaScript  url: http://getbootstrap.com/
