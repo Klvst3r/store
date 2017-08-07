@@ -96,6 +96,10 @@
           </div>
           <div class="modal-body"> 
             <!-- Se cargan los productos -->
+           <input type="text" class="form-control" placeholder="Buscar" ng-model="buscarProducto" /> 
+           <hr/>
+
+            <!-- Tabla de productos cargados dinamicamente con Angular -->
             <table class="table table-hover">
               <thead>
                 <tr>
@@ -113,6 +117,7 @@
                 </tr>
               </tbody>
             </table>
+            <!-- Tabla de productos cargados dinamicamente con Angular -->
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
