@@ -79,3 +79,4 @@ Procesos:
 42. Mostrando modal con productos   AJAX   
 	JavaScript  url: http://getbootstrap.com/
 43. Agregando productos Angularjs 
+44. Evitando productos duplicados y obteniendo total 
