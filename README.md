@@ -80,3 +80,4 @@ Procesos:
 	JavaScript  url: http://getbootstrap.com/
 43. Agregando productos Angularjs 
 44. Evitando productos duplicados y obteniendo total 
+45. Registro de detalles de ventas
