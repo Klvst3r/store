@@ -80,7 +80,7 @@ ventaApp.controller('ventaController', ['$scope', '$http',"$filter",function($sc
             angular.forEach($scope.productosAdd,function(value,key){
                     total = total + parseInt(value.subtotal);//Lo formatea en subtotal como valor numerico
             });
-            
+
             return total;
         }
     }
