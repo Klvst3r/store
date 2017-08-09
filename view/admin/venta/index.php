@@ -27,7 +27,18 @@
                 </thead>
                 <tbody>
                     <!-- El nombre es la variable que se pasa del controlador, en el retorno de la vista-->
-                    
+                    <?php foreach ($ventas as $v) {
+                    ?>
+                    <tr>
+                        <td><?php echo $v->id ?></td>
+                        <td><?php echo $v->cliente ?></td>
+                        <td><?php echo "$ ". number_format($v->monto_venta,2) ?></td>
+                        <td>
+                            
+                        </td>
+                      
+                    <?php    
+                    } ?>
 
 
                 </tbody>

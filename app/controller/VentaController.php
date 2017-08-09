@@ -2,6 +2,11 @@
 //Controlador de Ventas
 //Para importar la clase de Ventas del modelo de la Aplicación
 use App\model\Venta;
+
+
+//importamos modelo de VentaDetalle
+use App\model\Ventadetalle;
+
 //Importamos el ORM par aVenta para usarlo directamenbte en registrar venta
 use \libreria\ORM\EtORM;
 //se importa la Vista
@@ -24,30 +29,44 @@ class VentaController {
 		//recuperamos el ultimo id que se inserto
 		//echo $venta->id;
 		
-		return Vista::crear('admin.venta.index'); 
+		$data["ventas"] = Venta::all();
+		return Vista::crear('admin.venta.index', $data); 
 
-	} //Funcion Index
+	} //Funcion Index 
 
 	//Metodo para nueva venta
 	public function nuevo(){
 		return Vista::crear('admin.venta.nuevo');
 	}
 
-	public function agregar(){
-		$venta 			= new Venta();
+	public function agregar()
+    {
+        $venta              = new Venta();
+        $venta->cliente     = input('nombre');
+        $venta->monto_venta = input('monto_total');
+        $venta->fecha       = date('Y-m-d');
 
-		$venta->cliente = input('nombre');
-		$venta->fecha 	= date('Y-m-d');
+        if ($venta->guardar()) {
+            $productos = json_decode(input('productos')); 
 
-		//$venta->guardar();
-		//Si guarda redirecciona
-		if($venta->guardar()){
-			return redirecciona()->to('venta');
-		}
+            foreach ($productos as $producto) {
+                $vd              = new Ventadetalle();
+                $vd->producto_id = $producto->id;
+                $vd->venta_id    = $venta->id;
+                $vd->cantidad    = $producto->cantidad;
+                $vd->descuento   = '0';
+                $vd->monto       = $producto->subtotal;
+                $vd->guardar();
+                                                                                                     
+            }
 
-		return redirecciona()->to('venta;');
+            return redirecciona()->to('venta');
+        }
+        return redirecciona()->to('venta');
+    }
 
-	}
+
+
 
 	public function buscar(){
 		//Buscar una venta por cliente que es la columna con el valor Klvstr y lo alamacenamos en una variable

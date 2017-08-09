@@ -32,7 +32,7 @@
 
                   <div class="form-group">
                     <label for="usuario">Nombre del cliente</label>
-                    <input value="<?php echo isset($venta) ? $venta->cliente : ''?>" required autofocus type="text" name="nombre" class="form-control" id="usuario" placeholder="Contoso Alfaro">
+                    <input value="<?php echo isset($venta) ? $venta->cliente : ''?>" required autofocus type="text" name="nombre" class="form-control" id="usuario" placeholder="Nombre Apellido(s)">
                   </div>
                   <?php if (isset($venta)) {?>
                     <div class="form-group">
@@ -80,11 +80,11 @@
               </div>
               <div class="col-md-12">
                 <input type="hidden" name="productos" value="{{ productosAdd }}">
-                <input type="hidden" name="total" value="{{ getTotal() }}">
+                <input type="hidden" name="monto_total" value="{{ getTotal() }}">
                 <div class="text-right">
-                  <button class="btn btn-lg btn-success" type="submit">Registrar venta</button>
+                  <button type="submit" class="btn btn-lg btn-success">Registrar venta</button>
                 </div>
-              </div>
+              </div>|
             </form>
           </div>
           <div class="modal fade" id="listaProductos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
