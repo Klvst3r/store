@@ -6,6 +6,8 @@ use App\model\User;
 use libreria\ORM\EtORM;
 
 class AuthController {
+
+
 	public function index(){
 		//return Vista::crear("auth.login");
 		//Podriamos hacer uso del metodo directamente que se ha creado en helps.

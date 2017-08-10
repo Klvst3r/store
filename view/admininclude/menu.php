@@ -1,3 +1,9 @@
+<?php
+//Verificación de existencia de Variables de Sessión, como se crea una vista se importa la clase
+use vista\Vista;
+//VErificamos usuario
+if(isset($_SESSION["usuario"])){
+?>       
        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -77,3 +83,10 @@
         </div>
         <!-- /.navbar-static-side -->
     </nav>
+
+<?php
+}else{
+            //echo "No existen variables de sesión";
+            return vista::crear("admin.logout");
+        }
+?>
