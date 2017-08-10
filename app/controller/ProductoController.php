@@ -41,22 +41,26 @@ class ProductoController {
 	//Guardar producto - Agregar
 	 public function agregar(){
         try {
+            if(!empty($_POST)){
+               $producto = new Producto();
 
-            $producto = new Producto();
+                if (input('producto_id')) {
+                    $producto = Producto::find(input('producto_id'));
+                }
 
-            if (input('producto_id')) {
-                $producto = Producto::find(input('producto_id'));
+                $producto->nombre   = input("nombre");
+                $producto->precio = input("precio");
+
+                $producto->guardar();
+
+                redirecciona()->to("producto"); 
             }
-
-            $producto->nombre   = input("nombre");
-            $producto->precio = input("precio");
-
-            $producto->guardar();
-
-            redirecciona()->to("producto");
+            
         } catch (Exception $e) {
             echo $e->getMessage();
         }
+        //Si no sucede nada con el metodo POST
+        redirecciona()->to("producto"); 
 
     } //Metodo Agregar
 
