@@ -168,6 +168,7 @@ class UsuarioController {
         return redirecciona()->to('usuario');
     }
 
+ 
 
     public function eliminar($id){
         $usuario = User::find($id);

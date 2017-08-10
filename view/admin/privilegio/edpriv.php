@@ -16,8 +16,8 @@
         <div id="page-wrapper">
             <br/>
             <div class="row">
-                <div class="col-lg-12"><?php echo isset($usuario) ? 'Actualizar' : 'Nuevo' ?> Usuario | 
-                    <a href="<?php url('usuario'); ?>" class="btn btn-default">
+                <div class="col-lg-12"><?php echo isset($usuario) ? 'Actualizar' : 'Nuevo' ?> Privilegio | 
+                    <a href="<?php url('privilegio'); ?>" class="btn btn-default">
                         <i class="fa fa-users"></i> Ver Listado</a>
                     </h1>
                 </div>
@@ -30,7 +30,7 @@
                 <div class="col-md-6">
                   <div class="panel panel-default">
                      <div class="panel-body">
-                        <form action="<?php url('usuario/agregar'); ?>" method="POST" role="form">
+                        <form action="<?php url('privilegio/agregar'); ?>" method="POST" role="form">
                             <legend>Datos del usuario</legend>
 
                             <?php if(isset($usuario)) { ?>
@@ -40,21 +40,10 @@
                             <div class="form-group">
                               <label for="usuario">Nombre</label>
                               <input value="<?php echo isset($usuario) ? $usuario->usuario : '' ?>"
-                              type="text" name="usuario" class="form-control" id="usuario" placeholder="Nombre de Usuario" required autofocus />
+                              type="text" name="usuario" class="form-control" id="usuario" placeholder="Nombre de Usuario" required autofocus disabled/>
                             </div>
                           
-                            <div class="form-group">
-                              <label for="email">Email</label>
-                              <input value="<?php echo isset($usuario) ? $usuario->email : '' ?>"
-                              type="email" name="email" class="form-control" id="email" placeholder="usuario@dominio" required  />
-                            </div>
-
-                            <div class="form-group">
-                              <label for="pwd">Password</label>
-                              <input type="password" name="password" class="form-control" id="pwd" />
-                            </div>
-
-                            <div class="form-group">
+	                            <div class="form-group">
                               <label for="inputPrivi">Privilegio</label>
                               <select name="privilegio" id="inputPrivi" class="form-control" required="required">
                                   <option <?php echo isset($usuario) && $usuario->privilegio == 'admin' ? 'selected' : '' ?> value?"admin">Administrador</option>
@@ -63,7 +52,7 @@
                             </div>
 
 
-                          <button type="submit" class="btn btn-primary">Registrar</button>
+                          <button type="submit" class="btn btn-primary">Cambiar</button>
                       </form>  
                   </div>
               </div>
