@@ -21,4 +21,8 @@ class AdminController {
 		}
 		
 	}
+
+	public function logout(){
+		return vista::crear("admin.logout");
+	}
 }

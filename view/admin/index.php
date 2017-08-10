@@ -1,9 +1,9 @@
 <?php
-if(isset($_SESSION["usuario"])){
-    echo $_SESSION["usuario"];
+/*if(isset($_SESSION["usuario"])){
+    //echo $_SESSION["usuario"];
 }else{
     echo "No existen variables de sesión";
-}
+}*/
 ?>
 
 <!DOCTYPE html>
