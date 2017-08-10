@@ -82,3 +82,4 @@ Procesos:
 44. Evitando productos duplicados y obteniendo total 
 45. Registro de detalles de ventas
 46. Eliminar productos de la venta
+47. Correcciones de CSRF e INPUT FILTER

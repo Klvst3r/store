@@ -77,9 +77,24 @@ function val_csrf(){
  *  Funcion que permite recuperar un input
  *  Enviamos el name del input y sera retornado, con la finalidad de retornar todo correctamente
  */
-function input($name){
+function input($campo){
+	/**--Funcion desfasada para versiones actuales de php-*/
+	//se encontra definida como: function input($name){
+	/*
     $re = new \Library\help\Request();
     return $re->input($name);
+    */
+   /*En este campo recupera el request campo de lo que le enviamos y REQUES recupera GET y POST y hay que validar si es uno u otro*/
+   //quita slashes y etiquetas de ese texto que estamos enviaando, retornamos e campo limpio listo para guardar en la bd
+   	
+   	$campo = $_REQUEST[$campo];
+
+   	$campo = trim($campo);
+   	$campo = stripcslashes($campo);
+   	$campo = htmlspecialchars($campo);
+
+   	return $campo; 
+	
 }
 
 /**
