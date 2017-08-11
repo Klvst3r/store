@@ -99,4 +99,14 @@ class PrivController {
 	 * Eliminar Privilegio de la BD
 	 */
 
+	public function eliminar($id){
+        $privilegio = Privilegio::find($id);
+        if (count($privilegio)) {
+            $privilegio->eliminar();
+            return redirecciona()->to('privilegio');
+        }
+        return redirecciona()->to('privilegio');
+
+    }
+
 }
