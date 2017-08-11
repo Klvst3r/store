@@ -4,6 +4,8 @@ use \vista\Vista;
 
 // Dentro de controladores de incluyen los modelos, esta referenciado la clase User
 use App\model\User;
+//Modelo Privilegio
+use App\model\Privilegio;
 
 class PrivController {
 	
@@ -53,5 +55,30 @@ class PrivController {
         }
 
     } //Metodo Agregar
+
+    public function nuevo(){
+        return Vista::crear("admin.privilegio.nuevo");
+    }
+
+
+
+    public function add(){
+
+        try {
+
+            $priv = new Privilegio();
+
+            $priv->descripcion = input("privilegio");
+
+            $priv->guardar();
+
+            redirecciona()->to("privilegio");
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
+    } //Metodo Agregar Privilegio
 	
+
+
 }
