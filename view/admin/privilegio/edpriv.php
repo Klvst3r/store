@@ -16,9 +16,9 @@
         <div id="page-wrapper">
             <br/>
             <div class="row">
-                <div class="col-lg-12"><?php echo isset($usuario) ? 'Actualizar' : 'Nuevo' ?> Privilegio | 
+                <div class="col-lg-12"><?php echo isset($privilegio) ? 'Actualizar' : 'Nuevo' ?> Privilegio | 
                     <a href="<?php url('privilegio'); ?>" class="btn btn-default">
-                        <i class="fa fa-users"></i> Ver Listado</a>
+                        <i class="fa fa-arrow-left"></i> Regresar Listado</a>
                     </h1>
                 </div>
                 <!-- /.col-lg-12 -->
@@ -31,25 +31,19 @@
                   <div class="panel panel-default">
                      <div class="panel-body">
                         <form action="<?php url('privilegio/agregar'); ?>" method="POST" role="form">
-                            <legend>Datos del usuario</legend>
+                            <legend>Datos del Privilegio</legend>
 
-                            <?php if(isset($usuario)) { ?>
-                                  <input type="hidden" value="<?php echo $usuario->id ?>" name="usuario_id" />
+                            <?php if(isset($privilegio)) { ?>
+                                  <input type="hidden" value="<?php echo $privilegio->id ?>" name="privilegio_id" />
                             <?php } ?>
 
                             <div class="form-group">
-                              <label for="usuario">Nombre</label>
-                              <input value="<?php echo isset($usuario) ? $usuario->usuario : '' ?>"
-                              type="text" name="usuario" class="form-control" id="usuario" placeholder="Nombre de Usuario" required autofocus disabled/>
+                              <label for="privilegio">Privilegio</label>
+                              <input value="<?php echo isset($privilegio) ? $privilegio->descripcion : '' ?>"
+                              type="text" name="privilegio" class="form-control" id="privilegio" placeholder="Nombre de Privilegio" required autofocus />
                             </div>
                           
-	                            <div class="form-group">
-                              <label for="inputPrivi">Privilegio</label>
-                              <select name="privilegio" id="inputPrivi" class="form-control" required="required">
-                                  <option <?php echo isset($usuario) && $usuario->privilegio == 'admin' ? 'selected' : '' ?> value?"admin">Administrador</option>
-                                  <option <?php echo isset($usuario) && $usuario->privilegio == 'venta' ? 'selected' : '' ?> value?"venta">Vendedor</option>
-                              </select>
-                            </div>
+	                            
 
 
                           <button type="submit" class="btn btn-primary">Cambiar</button>

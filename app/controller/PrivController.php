@@ -11,11 +11,11 @@ class PrivController {
 	
 	public function index(){
 
-		$usuarios = User::all();
+		$privilegios = Privilegio::all();
             
         //regresamos la vista de listado de usuarios para verificar privilegios 
         return Vista::crear("admin.privilegio.index", array(
-                "usuarios"=>$usuarios,
+                "privilegios"=>$privilegios,
             ));
 		
 		
@@ -26,12 +26,12 @@ class PrivController {
     {
         //echo $id;
         //Realizamos un listado de valores de acuerdo al identificador del parametro de la fncion editar    
-        $usuario = User::find($id);
+        $privilegio = Privilegio::find($id);
         //Volcamos los datos a pantalla
         //var_dump($usuario);
         //Retornamos el usuario
-        if (count($usuario)) {
-            return Vista::crear('admin.privilegio.edpriv', array("usuario" => $usuario));
+        if (count($privilegio)) {
+            return Vista::crear('admin.privilegio.edpriv', array("privilegio" => $privilegio));
         }
         return redirecciona()->to('privilegio');
     }
@@ -41,20 +41,20 @@ class PrivController {
 
         try {
 
-            $user = new User();
-            if (input('usuario_id')) {
-                $user = User::find(input('usuario_id'));
+            $privilegio = new Privilegio();
+            if (input('privilegio_id')) {
+                $privilegio = Privilegio::find(input('privilegio_id'));
             }
 
-            $user->privilegio = input("privilegio");
-            $user->guardar();
+            $privilegio->descripcion = input("privilegio");
+            $privilegio->guardar();
 
             redirecciona()->to("privilegio");
         } catch (Exception $e) {
             echo $e->getMessage();
         }
 
-    } //Metodo Agregar
+    } //Metodo Agregar Privilegio
 
     public function nuevo(){
         return Vista::crear("admin.privilegio.nuevo");
@@ -78,7 +78,25 @@ class PrivController {
         }
 
     } //Metodo Agregar Privilegio
+
+    public function editar($id)
+    {
+        echo $id;
+        //Realizamos un listado de valores de acuerdo al identificador del parametro de la fncion editar    
+        //$privilegio = Privilegio::find($id);
+        //Volcamos los datos a pantalla
+        //var_dump($privilegio);
+        //Retornamos el usuario
+        
+        /*if (count($privilegio)) {
+            return Vista::crear('admin.privilegio.edpriv', array("privilegio" => $privilegio));
+        }
+        return redirecciona()->to('privilegio');*/
+    }
 	
 
+	/**
+	 * Eliminar Privilegio de la BD
+	 */
 
 }
